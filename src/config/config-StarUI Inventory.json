@@ -1,0 +1,386 @@
+{
+    "modName": "StarUI Inventory",
+    "author": "m8r98a4f2",
+    "displayName": "StarUI Inventory",
+    "iniFileDefault": "Interface\\StarUI Inventory (default).ini",
+    "iniFile": "Interface\\StarUI Inventory.ini",
+    "teaserImage": "config.images/Inventory/StarUI_Inventory_Teaser.jpg",
+    "version": 1,
+    "pages": [
+        {
+            "pageDisplayName": "Category list",
+            "content": [
+                { "type" : "section", "text" : "Category list" }
+                ,{ "type": "switcher", "text": "Category sidebar", "help": "Show a category sidebar on the left in Inventory", "id": "bLeftCategorySidebar:StarUI Inventory"}
+                ,{ "type": "switcher", "text": "Subcategory sidebar", "help": "Show a subcategory sidebar for more filtering", "id": "bLeftSubCategorySidebar:StarUI Inventory"}
+                ,{ "type": "switcher", "text": "Collapse space for sidebar", "help": "Collapse space for subcategory sidebar when no subcategories available (will move the main items list a bit)", "id": "bLeftSubCategorySidebarCollapse:StarUI Inventory"}
+                ,{ "type": "switcher", "text": "Show category mass", "help": "Show category mass", "id": "bShowCatMass:StarUI Inventory"}
+                ,{ "type": "switcher", "text": "Switch category name and equipped item name", "help": "Player inventory: Switch the category name and equipped item name to make it more consistent", "id": "bPlayerInventoryCatListSwitchCatNameAndItem:StarUI Inventory"}
+                ,{ "type": "slider", "text": "Font Size for main text in category entries", "help": "Font Size for main text in category entries (Default: 20)", "id": "iCategoryListFontSize:StarUI Inventory",
+                    "valueOptions" : {"min" : 0, "max" : 100, "step" : 1 }}
+                ,{ "type": "slider", "text": "Font Size for subtitle text in category entries", "help": "Font Size for subtitle text in category entries (Default: 20)", "id": "iCategoryListSubtitleFontSize:StarUI Inventory",
+                    "valueOptions" : {"min" : 0, "max" : 100, "step" : 1 }}
+                ,{ "type": "slider", "text": "Font Size for count/mass value", "help": "Font Size for count/mass in category entries (Default: 18)", "id": "iCategoryListCountMassFontSize:StarUI Inventory",
+                    "valueOptions" : {"min" : 0, "max" : 100, "step" : 1 }}
+                ,{ "type": "slider", "text": "Font Size for count/mass label", "help": "Font Size for count/mass in category entries (Default: 9)", "id": "iCategoryListCountMassLabelFontSize:StarUI Inventory",
+                    "valueOptions" : {"min" : 0, "max" : 100, "step" : 1 }}
+                ,{ "type": "slider", "text": "Category entry height", "help": "Height of a category entry. Should be min. 40", "id": "iCatListEntryHeight:StarUI Inventory",
+                    "valueOptions" : {"min" : 0, "max" : 100, "step" : 1 }}
+                ,{ "type": "slider", "text": "Max characters per line", "help": "Max characters per line for category text", "id": "iCategoryListMaxChars:StarUI Inventory",
+                    "valueOptions" : {"min" : 0, "max" : 100, "step" : 1 }}
+                ]
+            },
+            {
+                "pageDisplayName" : "Item list",
+                "content" : [
+                    { "type" : "section", "text" : "Item list" }
+                    ,{ "type": "switcher", "text": "Tag icon for item", "help": "Show tag icon for item (in items list) - previously bShowItemCategoryIcon", "id": "bShowItemTagIcon:StarUI Inventory"}
+                ,{ "type": "switcher", "text": " - Colored", "help": "Use colored item icons", "id": "bShowHeartFavorite:StarUI Inventory"}
+                ,{ "type": "switcher", "text": "Favorite assignment number", "help": "Show your favorite assignment number in the items heart icon", "id": "bItemTagColorized:StarUI Inventory"}
+                
+                ,{ "type": "slider", "text": "Font size", "help": "Font size (Default: 20)", "id": "iItemListFontSize:StarUI Inventory",
+                    "valueOptions" : {"min" : 0, "max" : 100, "step" : 1 }}
+                ,{ "type": "slider", "text": "Item entry height", "help": "Height of an item entry (Min 26)", "id": "iItemListEntryHeight:StarUI Inventory",
+                    "valueOptions" : {"min" : 0, "max" : 100, "step" : 1 }}
+                ,{ "type": "slider", "text": "Cell padding", "help": "Extra padding on left and right in the cells", "id": "iItemListColPadding:StarUI Inventory",
+                    "valueOptions" : {"min" : 0, "max" : 100, "step" : 1 }}
+                ,{ "type": "slider", "text": "Cell background opaqueness", "help": "Make the item list opaque, so it's easier to read with item model in background. Value in percent.", "id": "iItemListOpaqueBackground:StarUI Inventory",
+                    "valueOptions" : {"min" : 0, "max" : 100, "step" : 1 }}
+                ,{ "type": "dropdown", "text": "Text font", "help": "6 Consolas (Contains only ASCII characters for EN)", "id": "iUseFont:StarUI Inventory", 
+                    "valueOptions" : {"options" : ["Default","NB Architekt Light","NB Architekt","NB Grotesk R Semibold","NB Grotesk R Bold","Arial (EN only)","Consolas (EN only)"]}}
+            ]
+        },
+        {
+            "pageDisplayName" : "Coloration",
+            "content" : [
+                { "type" : "section", "text" : "Inventory colors" }
+                ,{"type" : "textinput", "text": "Default inventory color", "help": "Will be used if no other color is specified.", "id": "sInventoryDefaultColor:StarUI Inventory", "typeSpecial" : "color"}
+
+                ,{ "type" : "section", "text" : "Overall color by inventory type" }
+                ,{"type" : "textinput", "text": "Players inventory", "help": "", "id": "sInventoryPlayerColor:StarUI Inventory", "typeSpecial" : "color"}
+                ,{"type" : "textinput", "text": "Container", "help": "", "id": "sInventoryContainerColor:StarUI Inventory", "typeSpecial" : "color"}
+                ,{"type" : "textinput", "text": "Container - Stealing", "help": "", "id": "sInventoryContainerStealColor:StarUI Inventory", "typeSpecial" : "color"}
+                ,{"type" : "textinput", "text": "Ship cargo", "help": "", "id": "sInventoryShipColor:StarUI Inventory", "typeSpecial" : "color"}
+                ,{"type" : "textinput", "text": "Companion", "help": "", "id": "sInventoryCompanionColor:StarUI Inventory", "typeSpecial" : "color"}
+                ,{"type" : "textinput", "text": "Trader - Buy", "help": "", "id": "sInventoryBuyColor:StarUI Inventory", "typeSpecial" : "color"}
+                ,{"type" : "textinput", "text": "Trader - Sell", "help": "", "id": "sInventorySellColor:StarUI Inventory", "typeSpecial" : "color"}
+                ,{"type" : "textinput", "text": "Trader - Sell from ship", "help": "", "id": "sInventoryShipSellColor:StarUI Inventory", "typeSpecial" : "color"}
+
+                ,{ "type" : "section", "text" : "Colorize elements" }
+                ,{"type" : "textinput", "text": "Category list", "help": "", "id": "sCategoryListColor:StarUI Inventory", "typeSpecial" : "color"}
+                ,{"type" : "textinput", "text": "Subcategory list", "help": "", "id": "sSubcategoryListColor:StarUI Inventory", "typeSpecial" : "color"}
+                ,{"type" : "textinput", "text": "Item list", "help": "", "id": "sItemListColor:StarUI Inventory", "typeSpecial" : "color"}
+                ,{"type" : "textinput", "text": "Item card", "help": "", "id": "sItemCardColor:StarUI Inventory", "typeSpecial" : "color"}
+                ,{"type" : "textinput", "text": "Mass panel", "help": "", "id": "sMassPanelColor:StarUI Inventory", "typeSpecial" : "color"}
+                ,{"type" : "textinput", "text": "Mass panel - encumbered", "help": "", "id": "sMassPanelEncumberedColor:StarUI Inventory", "typeSpecial" : "color"}
+                ,{"type" : "textinput", "text": "Button bar", "help": "", "id": "sButtonHintsColor:StarUI Inventory", "typeSpecial" : "color"}
+
+                ,{ "type" : "section", "text" : "Rarity colors" }
+                ,{"type" : "textinput", "text": "Rare", "help": "Override rare color", "id": "sRarityColorRare:StarUI Inventory", "typeSpecial" : "color"}
+                ,{"type" : "textinput", "text": "Epic", "help": "Override epic color", "id": "sRarityColorEpic:StarUI Inventory", "typeSpecial" : "color"}
+                ,{"type" : "textinput", "text": "Legendary", "help": "Override legendary color", "id": "sRarityColorLegendary:StarUI Inventory", "typeSpecial" : "color"}
+    
+            ]
+        },
+        {
+            "pageDisplayName" : "Mass transfer",
+            "content" : [
+                { "type" : "section", "text" : "Mass transfer" }
+                ,{ "type": "switcher", "text": "Enable mass transfer", "help": "Enable mass transfer from and to container and selling to vendor", "id": "bEnableMassTransfer:StarUI Inventory"}
+                ,{ "type": "switcher", "text": " - Enable mass buy", "help": "Enable mass buying from vendor", "id": "bEnableMassTransferBuy:StarUI Inventory"}
+                ,{ "type": "switcher", "text": "No favorites", "help": "Don't transfer favorites or equipped!", "id": "bMassTransferNoFavorites:StarUI Inventory"}
+                ,{ "type": "switcher", "text": "No equipped", "help": "bMassTransferNoEquipped", "id": "bMassTransferNoEquipped:StarUI Inventory"}
+                ,{ "type": "textinput", "text": "Exclusion list (FormIDs)", "help": "This list doesn't applies when you mass-transfering into your inventory (So you can still loot everything)", "id": "sMassTransferIgnoreFormIDs:StarUI Inventory"}
+                ,{ "type": "switcher", "text": "Only sell for money", "help": "Stop mass selling when vendor is out of credits", "id": "bMassTransferOnlySellForCredits:StarUI Inventory"}
+            ]
+        },
+        {
+            "pageDisplayName" : "Quality of live",
+            "content" : [
+                { "type" : "section", "text" : "Quality of live" }
+                ,{ "type": "switcher", "text": "Instant open/close", "help": "Instant open/close animation", "id": "bInstantOpenCloseAnimation:StarUI Inventory"}
+                ,{ "type": "switcher", "text": "TAB directly to game (Player inventory)", "help": "Should the TAB key in inventory view go back to the game (instead of it's normal behavior to go to the wheel menu)", "id": "bTabToGame:StarUI Inventory"}
+                ,{ "type": "switcher", "text": "TAB directly to game (Container/Ship cargo)", "help": "Should the TAB key in container view go back to te game (like when viewing your ship's cargo)", "id": "bTabToGameContainer:StarUI Inventory"}
+                ,{ "type": "switcher", "text": "TAB exits in item list", "help": "Should the TAB close the inventory when in the item list", "id": "bTabInItemListToGame:StarUI Inventory"}
+                ,{ "type": "switcher", "text": "Enlarge scrollbar", "help": "Enlarge the scrollbar, so you can actually grap it with the mouse!", "id": "bEnlargeScrollBar:StarUI Inventory"}
+                ,{ "type": "slider", "text": "Mouse wheel scroll", "help": "How much should a wheel step scroll?", "id": "iListMouseWheelScrollAmount:StarUI Inventory",
+                    "valueOptions" : {"min" : 0, "max" : 50, "step" : 1 }}
+                ,{ "type": "switcher", "text": "Disable Vignette effect", "help": "Remove the vignette effect (shadow effect on the screen edges)", "id": "bDisableVignette:StarUI Inventory"}
+                ,{ "type": "switcher", "text": "Mass panel - Show stolen indicator", "help": "Show stolen and contraband indicators in mass panel - shows you if that inventory contains stolen or contraband items", "id": "bMassPanelShowStolen:StarUI Inventory"}
+                ,{ "type": "switcher", "text": "Mass panel - Show contraband indicator", "help": "Show stolen and contraband indicators in mass panel - shows you if that inventory contains stolen or contraband items", "id": "bMassPanelShowContraband:StarUI Inventory"}
+                ,{ "type": "switcher", "text": "Show FormID", "help": "Show FormID of item in ItemCard (Inventory only)", "id": "bItemCardShowFormId:StarUI Inventory"}
+                ,{ "type": "slider", "text": "Delay inventory update", "help": "Performance: Delays inventory update requests to cummulate multiple requests by the game engine into a single one. Value in milliseconds. Increase for bigger inventories. Default:10", "id": "iInventoryUpdateDelay:StarUI Inventory",
+                "valueOptions" : {"min" : 0, "max" : 100, "step" : 1 }}
+                ,{ "type" : "section", "text" : "Scales" }
+                ,{ "type": "switcher", "text": "Auto-adjust for Large Font Mode", "help": "Auto-adjust values when game setting 'Large Font Mode' is activated", "id": "bAutoAdjustToLargeFontMode:StarUI Inventory"}
+                ,{ "type": "slider", "text": "Item card scale", "help": "Scaling (size) for item cards (in percent)", "id": "iItemCardScale:StarUI Inventory",
+                "valueOptions" : {"min" : 0, "max" : 200, "step" : 1 }}
+                ,{ "type": "slider", "text": "Button bar scale", "help": "Scaling (size) for the button bar (in percent)", "id": "iButtonBarScale:StarUI Inventory",
+                "valueOptions" : {"min" : 0, "max" : 200, "step" : 1 }}
+                ,{ "type": "slider", "text": "Mass panel scale", "help": "Scaling (size) for the mass panel (in percent)", "id": "iMassPanelScale:StarUI Inventory",
+                    "valueOptions" : {"min" : 0, "max" : 200, "step" : 1 }}
+                ]
+            },
+            {
+                "pageDisplayName" : "Columns",
+                "content" : [
+                { "type" : "section", "text" : "Columns" }
+                ,{ "type": "switcher", "text": "Show QTY", "help": "Show QTY above item counts as column title", "id": "bShowCountTitle:CategoryColumns"}
+                ,{ "type": "switcher", "text": "Add toggle folding button [<]", "help": "Show toggle button to enable/disable additional columns", "id": "bShowColumnsToggleButton:CategoryColumns"}
+                ,{ "type": "switcher", "text": " - Starts folded", "help": "Default setting (when enabled)", "id": "bShowColumnsToggleButtonDefault:CategoryColumns"}
+                ,{ "type": "switcher", "text": "Add temporary columns button [+]", "help": "Show a button to add temporary columns in the game (lasts until inventory is closed)", "id": "bShowColumnsAddTemporaryButton:CategoryColumns"}
+
+                ,{ "type": "textinput", "text": "All", "help": "All will be used as fallback for any not specified", "id": "sAll:CategoryColumns", "typeSpecial" : "columns",
+                    "availableColumns": ["MASS", "MASS_STACK", "VALUE", "VALUE_STACK", "VPM",
+                        "", "WMANUFACTURER", "WACC", "WBASENAME", "WMAG", "WMODS", "WRANGE", "WROF", "WTYPE",
+                        "", "DAMAGES", "PHYS", "ENGY", "EM", "DR", "DMG", "DPS",
+                        "", "ATHERMAL", "AAIRBORNE", "ACORROSIVE", "ARADIATION",
+                        "", "AMMO", "AMMO_ROUNDS", "FAV", "RARITY","EQUIPPED", "CONTRABAND", "STOLEN", "QTY", "FORMID", "TREATMENT",
+                        "", "TARGET_INV_COUNT", "SHIP_INV_COUNT", "PLAYER_INV_COUNT", "CONTAINER_INV_COUNT", "TOTAL_INV_COUNT"]}
+                ,{ "type": "textinput", "text": "Weapons", "help": "", "id": "sWeapons:CategoryColumns", "typeSpecial" : "columns",
+                    "availableColumns": ["MASS", "MASS_STACK", "VALUE", "VALUE_STACK", "VPM",
+                        "", "WMANUFACTURER", "WACC", "WBASENAME", "WMAG", "WMODS", "WRANGE", "WROF", "WTYPE",
+                        "", "DAMAGES", "PHYS", "ENGY", "EM", "DR", "DMG", "DPS",
+                        "", "ATHERMAL", "AAIRBORNE", "ACORROSIVE", "ARADIATION",
+                        "", "AMMO", "AMMO_ROUNDS", "FAV", "RARITY","EQUIPPED", "CONTRABAND", "STOLEN", "QTY", "FORMID", "TREATMENT",
+                        "", "TARGET_INV_COUNT", "SHIP_INV_COUNT", "PLAYER_INV_COUNT", "CONTAINER_INV_COUNT", "TOTAL_INV_COUNT"]}
+                ,{ "type": "textinput", "text": "Apparel", "help": "Apparel will be used as fallback for Spacesuits, Packs and Helmets", "id": "sApparel:CategoryColumns", "typeSpecial" : "columns",
+                    "availableColumns": ["MASS", "MASS_STACK", "VALUE", "VALUE_STACK", "VPM",
+                        "", "WMANUFACTURER", "WACC", "WBASENAME", "WMAG", "WMODS", "WRANGE", "WROF", "WTYPE",
+                        "", "DAMAGES", "PHYS", "ENGY", "EM", "DR", "DMG", "DPS",
+                        "", "ATHERMAL", "AAIRBORNE", "ACORROSIVE", "ARADIATION",
+                        "", "AMMO", "AMMO_ROUNDS", "FAV", "RARITY","EQUIPPED", "CONTRABAND", "STOLEN", "QTY", "FORMID", "TREATMENT",
+                        "", "TARGET_INV_COUNT", "SHIP_INV_COUNT", "PLAYER_INV_COUNT", "CONTAINER_INV_COUNT", "TOTAL_INV_COUNT"]}
+                ,{ "type": "textinput", "text": "Aid", "help": "", "id": "sAid:CategoryColumns", "typeSpecial" : "columns",
+                    "availableColumns": ["MASS", "MASS_STACK", "VALUE", "VALUE_STACK", "VPM",
+                        "", "WMANUFACTURER", "WACC", "WBASENAME", "WMAG", "WMODS", "WRANGE", "WROF", "WTYPE",
+                        "", "DAMAGES", "PHYS", "ENGY", "EM", "DR", "DMG", "DPS",
+                        "", "ATHERMAL", "AAIRBORNE", "ACORROSIVE", "ARADIATION",
+                        "", "AMMO", "AMMO_ROUNDS", "FAV", "RARITY","EQUIPPED", "CONTRABAND", "STOLEN", "QTY", "FORMID", "TREATMENT",
+                        "", "TARGET_INV_COUNT", "SHIP_INV_COUNT", "PLAYER_INV_COUNT", "CONTAINER_INV_COUNT", "TOTAL_INV_COUNT"]}
+                ,{ "type": "textinput", "text": "Ammo", "help": "", "id": "sAmmo:CategoryColumns", "typeSpecial" : "columns",
+                    "availableColumns": ["MASS", "MASS_STACK", "VALUE", "VALUE_STACK", "VPM",
+                        "", "WMANUFACTURER", "WACC", "WBASENAME", "WMAG", "WMODS", "WRANGE", "WROF", "WTYPE",
+                        "", "DAMAGES", "PHYS", "ENGY", "EM", "DR", "DMG", "DPS",
+                        "", "ATHERMAL", "AAIRBORNE", "ACORROSIVE", "ARADIATION",
+                        "", "AMMO", "AMMO_ROUNDS", "FAV", "RARITY","EQUIPPED", "CONTRABAND", "STOLEN", "QTY", "FORMID", "TREATMENT",
+                        "", "TARGET_INV_COUNT", "SHIP_INV_COUNT", "PLAYER_INV_COUNT", "CONTAINER_INV_COUNT", "TOTAL_INV_COUNT"]}
+                ,{ "type": "textinput", "text": "Throwables", "help": "", "id": "sThrowables:CategoryColumns", "typeSpecial" : "columns",
+                    "availableColumns": ["MASS", "MASS_STACK", "VALUE", "VALUE_STACK", "VPM",
+                        "", "WMANUFACTURER", "WACC", "WBASENAME", "WMAG", "WMODS", "WRANGE", "WROF", "WTYPE",
+                        "", "DAMAGES", "PHYS", "ENGY", "EM", "DR", "DMG", "DPS",
+                        "", "ATHERMAL", "AAIRBORNE", "ACORROSIVE", "ARADIATION",
+                        "", "AMMO", "AMMO_ROUNDS", "FAV", "RARITY","EQUIPPED", "CONTRABAND", "STOLEN", "QTY", "FORMID", "TREATMENT",
+                        "", "TARGET_INV_COUNT", "SHIP_INV_COUNT", "PLAYER_INV_COUNT", "CONTAINER_INV_COUNT", "TOTAL_INV_COUNT"]}
+                ,{ "type": "textinput", "text": "NewItems", "help": "", "id": "sNewItems:CategoryColumns", "typeSpecial" : "columns",
+                    "availableColumns": ["MASS", "MASS_STACK", "VALUE", "VALUE_STACK", "VPM",
+                        "", "WMANUFACTURER", "WACC", "WBASENAME", "WMAG", "WMODS", "WRANGE", "WROF", "WTYPE",
+                        "", "DAMAGES", "PHYS", "ENGY", "EM", "DR", "DMG", "DPS",
+                        "", "ATHERMAL", "AAIRBORNE", "ACORROSIVE", "ARADIATION",
+                        "", "AMMO", "AMMO_ROUNDS", "FAV", "RARITY","EQUIPPED", "CONTRABAND", "STOLEN", "QTY", "FORMID", "TREATMENT",
+                        "", "TARGET_INV_COUNT", "SHIP_INV_COUNT", "PLAYER_INV_COUNT", "CONTAINER_INV_COUNT", "TOTAL_INV_COUNT"]}
+                ,{ "type": "textinput", "text": "Spacesuits", "help": "", "id": "sSpacesuits:CategoryColumns", "typeSpecial" : "columns",
+                    "availableColumns": ["MASS", "MASS_STACK", "VALUE", "VALUE_STACK", "VPM",
+                        "", "WMANUFACTURER", "WACC", "WBASENAME", "WMAG", "WMODS", "WRANGE", "WROF", "WTYPE",
+                        "", "DAMAGES", "PHYS", "ENGY", "EM", "DR", "DMG", "DPS",
+                        "", "ATHERMAL", "AAIRBORNE", "ACORROSIVE", "ARADIATION",
+                        "", "AMMO", "AMMO_ROUNDS", "FAV", "RARITY","EQUIPPED", "CONTRABAND", "STOLEN", "QTY", "FORMID", "TREATMENT",
+                        "", "TARGET_INV_COUNT", "SHIP_INV_COUNT", "PLAYER_INV_COUNT", "CONTAINER_INV_COUNT", "TOTAL_INV_COUNT"]}
+                ,{ "type": "textinput", "text": "Packs", "help": "", "id": "sPacks:CategoryColumns", "typeSpecial" : "columns",
+                    "availableColumns": ["MASS", "MASS_STACK", "VALUE", "VALUE_STACK", "VPM",
+                        "", "WMANUFACTURER", "WACC", "WBASENAME", "WMAG", "WMODS", "WRANGE", "WROF", "WTYPE",
+                        "", "DAMAGES", "PHYS", "ENGY", "EM", "DR", "DMG", "DPS",
+                        "", "ATHERMAL", "AAIRBORNE", "ACORROSIVE", "ARADIATION",
+                        "", "AMMO", "AMMO_ROUNDS", "FAV", "RARITY","EQUIPPED", "CONTRABAND", "STOLEN", "QTY", "FORMID", "TREATMENT",
+                        "", "TARGET_INV_COUNT", "SHIP_INV_COUNT", "PLAYER_INV_COUNT", "CONTAINER_INV_COUNT", "TOTAL_INV_COUNT"]}
+                ,{ "type": "textinput", "text": "Helmets", "help": "", "id": "sHelmets:CategoryColumns", "typeSpecial" : "columns",
+                    "availableColumns": ["MASS", "MASS_STACK", "VALUE", "VALUE_STACK", "VPM",
+                        "", "WMANUFACTURER", "WACC", "WBASENAME", "WMAG", "WMODS", "WRANGE", "WROF", "WTYPE",
+                        "", "DAMAGES", "PHYS", "ENGY", "EM", "DR", "DMG", "DPS",
+                        "", "ATHERMAL", "AAIRBORNE", "ACORROSIVE", "ARADIATION",
+                        "", "AMMO", "AMMO_ROUNDS", "FAV", "RARITY","EQUIPPED", "CONTRABAND", "STOLEN", "QTY", "FORMID", "TREATMENT",
+                        "", "TARGET_INV_COUNT", "SHIP_INV_COUNT", "PLAYER_INV_COUNT", "CONTAINER_INV_COUNT", "TOTAL_INV_COUNT"]}
+                ,{ "type": "textinput", "text": "Notes", "help": "", "id": "sNotes:CategoryColumns", "typeSpecial" : "columns",
+                    "availableColumns": ["MASS", "MASS_STACK", "VALUE", "VALUE_STACK", "VPM",
+                        "", "WMANUFACTURER", "WACC", "WBASENAME", "WMAG", "WMODS", "WRANGE", "WROF", "WTYPE",
+                        "", "DAMAGES", "PHYS", "ENGY", "EM", "DR", "DMG", "DPS",
+                        "", "ATHERMAL", "AAIRBORNE", "ACORROSIVE", "ARADIATION",
+                        "", "AMMO", "AMMO_ROUNDS", "FAV", "RARITY","EQUIPPED", "CONTRABAND", "STOLEN", "QTY", "FORMID", "TREATMENT",
+                        "", "TARGET_INV_COUNT", "SHIP_INV_COUNT", "PLAYER_INV_COUNT", "CONTAINER_INV_COUNT", "TOTAL_INV_COUNT"]}
+                ,{ "type": "textinput", "text": "Resources", "help": "", "id": "sResources:CategoryColumns", "typeSpecial" : "columns",
+                    "availableColumns": ["MASS", "MASS_STACK", "VALUE", "VALUE_STACK", "VPM",
+                        "", "WMANUFACTURER", "WACC", "WBASENAME", "WMAG", "WMODS", "WRANGE", "WROF", "WTYPE",
+                        "", "DAMAGES", "PHYS", "ENGY", "EM", "DR", "DMG", "DPS",
+                        "", "ATHERMAL", "AAIRBORNE", "ACORROSIVE", "ARADIATION",
+                        "", "AMMO", "AMMO_ROUNDS", "FAV", "RARITY","EQUIPPED", "CONTRABAND", "STOLEN", "QTY", "FORMID", "TREATMENT",
+                        "", "TARGET_INV_COUNT", "SHIP_INV_COUNT", "PLAYER_INV_COUNT", "CONTAINER_INV_COUNT", "TOTAL_INV_COUNT"]}
+                ,{ "type": "textinput", "text": "Misc", "help": "", "id": "sMisc:CategoryColumns", "typeSpecial" : "columns",
+                    "availableColumns": ["MASS", "MASS_STACK", "VALUE", "VALUE_STACK", "VPM",
+                        "", "WMANUFACTURER", "WACC", "WBASENAME", "WMAG", "WMODS", "WRANGE", "WROF", "WTYPE",
+                        "", "DAMAGES", "PHYS", "ENGY", "EM", "DR", "DMG", "DPS",
+                        "", "ATHERMAL", "AAIRBORNE", "ACORROSIVE", "ARADIATION",
+                        "", "AMMO", "AMMO_ROUNDS", "FAV", "RARITY","EQUIPPED", "CONTRABAND", "STOLEN", "QTY", "FORMID", "TREATMENT",
+                        "", "TARGET_INV_COUNT", "SHIP_INV_COUNT", "PLAYER_INV_COUNT", "CONTAINER_INV_COUNT", "TOTAL_INV_COUNT"]}
+
+            ]
+        },
+        {
+            "pageDisplayName" : "Columns sort",
+            "content" : [
+                { "type" : "section", "text" : "Columns sort" }
+                ,{ "type" : "text", "html": true, "text" : "<font color='#aaaaaa'>When bAllowSecondarySortKey is enabled you can specify a secondary sort key by adding another COLUMN after the first (separated by comma)</font>" }
+                ,{ "type": "switcher", "text": "Allow secondary sort key", "help": "Should the secondary sort key are customizable. Either by specified in this INI or the previously clicked column.\nIf disabled the secondary sort key is the name.", "id": "bAllowSecondarySortKey:CategoryColumns"}
+                
+                ,{ "type": "textinput", "text": "Global default", "help": "Defines which column sort should be active by default. Leave empty for vanilla sorting. Default: TAG (Sorts by special column item tag, then name)", "id": "sDefaultSort:CategoryColumns", "typeSpecial" : "columns",
+                    "availableColumns": ["TAG", "MASS", "MASS_STACK", "VALUE", "VALUE_STACK", "VPM",
+                        "", "WMANUFACTURER", "WACC", "WBASENAME", "WMAG", "WMODS", "WRANGE", "WROF", "WTYPE",
+                        "", "DAMAGES", "PHYS", "ENGY", "EM", "DR", "DMG", "DPS",
+                        "", "ATHERMAL", "AAIRBORNE", "ACORROSIVE", "ARADIATION",
+                        "", "AMMO", "AMMO_ROUNDS", "FAV", "RARITY","EQUIPPED", "CONTRABAND", "STOLEN", "QTY", "FORMID", "TREATMENT",
+                        "", "TARGET_INV_COUNT", "SHIP_INV_COUNT", "PLAYER_INV_COUNT", "CONTAINER_INV_COUNT", "TOTAL_INV_COUNT"]}
+                ,{ "type": "textinput", "text": "All", "help": "", "id": "sDefaultSortAll:CategoryColumns", "typeSpecial" : "columns",
+                    "availableColumns": ["TAG", "MASS", "MASS_STACK", "VALUE", "VALUE_STACK", "VPM",
+                        "", "WMANUFACTURER", "WACC", "WBASENAME", "WMAG", "WMODS", "WRANGE", "WROF", "WTYPE",
+                        "", "DAMAGES", "PHYS", "ENGY", "EM", "DR", "DMG", "DPS",
+                        "", "ATHERMAL", "AAIRBORNE", "ACORROSIVE", "ARADIATION",
+                        "", "AMMO", "AMMO_ROUNDS", "FAV", "RARITY","EQUIPPED", "CONTRABAND", "STOLEN", "QTY", "FORMID", "TREATMENT",
+                        "", "TARGET_INV_COUNT", "SHIP_INV_COUNT", "PLAYER_INV_COUNT", "CONTAINER_INV_COUNT", "TOTAL_INV_COUNT"]}
+                ,{ "type": "textinput", "text": "Weapons", "help": "", "id": "sDefaultSortWeapons:CategoryColumns", "typeSpecial" : "columns",
+                    "availableColumns": ["TAG", "MASS", "MASS_STACK", "VALUE", "VALUE_STACK", "VPM",
+                        "", "WMANUFACTURER", "WACC", "WBASENAME", "WMAG", "WMODS", "WRANGE", "WROF", "WTYPE",
+                        "", "DAMAGES", "PHYS", "ENGY", "EM", "DR", "DMG", "DPS",
+                        "", "ATHERMAL", "AAIRBORNE", "ACORROSIVE", "ARADIATION",
+                        "", "AMMO", "AMMO_ROUNDS", "FAV", "RARITY","EQUIPPED", "CONTRABAND", "STOLEN", "QTY", "FORMID", "TREATMENT",
+                        "", "TARGET_INV_COUNT", "SHIP_INV_COUNT", "PLAYER_INV_COUNT", "CONTAINER_INV_COUNT", "TOTAL_INV_COUNT"]}
+                ,{ "type": "textinput", "text": "Spacesuits", "help": "", "id": "sDefaultSortSpacesuits:CategoryColumns", "typeSpecial" : "columns",
+                    "availableColumns": ["TAG", "MASS", "MASS_STACK", "VALUE", "VALUE_STACK", "VPM",
+                        "", "WMANUFACTURER", "WACC", "WBASENAME", "WMAG", "WMODS", "WRANGE", "WROF", "WTYPE",
+                        "", "DAMAGES", "PHYS", "ENGY", "EM", "DR", "DMG", "DPS",
+                        "", "ATHERMAL", "AAIRBORNE", "ACORROSIVE", "ARADIATION",
+                        "", "AMMO", "AMMO_ROUNDS", "FAV", "RARITY","EQUIPPED", "CONTRABAND", "STOLEN", "QTY", "FORMID", "TREATMENT",
+                        "", "TARGET_INV_COUNT", "SHIP_INV_COUNT", "PLAYER_INV_COUNT", "CONTAINER_INV_COUNT", "TOTAL_INV_COUNT"]}
+                ,{ "type": "textinput", "text": "Backpacks", "help": "", "id": "sDefaultSortPacks:CategoryColumns", "typeSpecial" : "columns",
+                    "availableColumns": ["TAG", "MASS", "MASS_STACK", "VALUE", "VALUE_STACK", "VPM",
+                        "", "WMANUFACTURER", "WACC", "WBASENAME", "WMAG", "WMODS", "WRANGE", "WROF", "WTYPE",
+                        "", "DAMAGES", "PHYS", "ENGY", "EM", "DR", "DMG", "DPS",
+                        "", "ATHERMAL", "AAIRBORNE", "ACORROSIVE", "ARADIATION",
+                        "", "AMMO", "AMMO_ROUNDS", "FAV", "RARITY","EQUIPPED", "CONTRABAND", "STOLEN", "QTY", "FORMID", "TREATMENT",
+                        "", "TARGET_INV_COUNT", "SHIP_INV_COUNT", "PLAYER_INV_COUNT", "CONTAINER_INV_COUNT", "TOTAL_INV_COUNT"]}
+                ,{ "type": "textinput", "text": "Helmets", "help": "", "id": "sDefaultSortHelmets:CategoryColumns", "typeSpecial" : "columns",
+                    "availableColumns": ["TAG", "MASS", "MASS_STACK", "VALUE", "VALUE_STACK", "VPM",
+                        "", "WMANUFACTURER", "WACC", "WBASENAME", "WMAG", "WMODS", "WRANGE", "WROF", "WTYPE",
+                        "", "DAMAGES", "PHYS", "ENGY", "EM", "DR", "DMG", "DPS",
+                        "", "ATHERMAL", "AAIRBORNE", "ACORROSIVE", "ARADIATION",
+                        "", "AMMO", "AMMO_ROUNDS", "FAV", "RARITY","EQUIPPED", "CONTRABAND", "STOLEN", "QTY", "FORMID", "TREATMENT",
+                        "", "TARGET_INV_COUNT", "SHIP_INV_COUNT", "PLAYER_INV_COUNT", "CONTAINER_INV_COUNT", "TOTAL_INV_COUNT"]}
+                ,{ "type": "textinput", "text": "Apparel", "help": "", "id": "sDefaultSortApparel:CategoryColumns", "typeSpecial" : "columns",
+                    "availableColumns": ["TAG", "MASS", "MASS_STACK", "VALUE", "VALUE_STACK", "VPM",
+                        "", "WMANUFACTURER", "WACC", "WBASENAME", "WMAG", "WMODS", "WRANGE", "WROF", "WTYPE",
+                        "", "DAMAGES", "PHYS", "ENGY", "EM", "DR", "DMG", "DPS",
+                        "", "ATHERMAL", "AAIRBORNE", "ACORROSIVE", "ARADIATION",
+                        "", "AMMO", "AMMO_ROUNDS", "FAV", "RARITY","EQUIPPED", "CONTRABAND", "STOLEN", "QTY", "FORMID", "TREATMENT",
+                        "", "TARGET_INV_COUNT", "SHIP_INV_COUNT", "PLAYER_INV_COUNT", "CONTAINER_INV_COUNT", "TOTAL_INV_COUNT"]}
+                ,{ "type": "textinput", "text": "Throwables", "help": "", "id": "sDefaultSortThrowables:CategoryColumns", "typeSpecial" : "columns",
+                    "availableColumns": ["TAG", "MASS", "MASS_STACK", "VALUE", "VALUE_STACK", "VPM",
+                        "", "WMANUFACTURER", "WACC", "WBASENAME", "WMAG", "WMODS", "WRANGE", "WROF", "WTYPE",
+                        "", "DAMAGES", "PHYS", "ENGY", "EM", "DR", "DMG", "DPS",
+                        "", "ATHERMAL", "AAIRBORNE", "ACORROSIVE", "ARADIATION",
+                        "", "AMMO", "AMMO_ROUNDS", "FAV", "RARITY","EQUIPPED", "CONTRABAND", "STOLEN", "QTY", "FORMID", "TREATMENT",
+                        "", "TARGET_INV_COUNT", "SHIP_INV_COUNT", "PLAYER_INV_COUNT", "CONTAINER_INV_COUNT", "TOTAL_INV_COUNT"]}
+                ,{ "type": "textinput", "text": "Ammo", "help": "", "id": "sDefaultSortAmmo:CategoryColumns", "typeSpecial" : "columns",
+                    "availableColumns": ["TAG", "MASS", "MASS_STACK", "VALUE", "VALUE_STACK", "VPM",
+                        "", "WMANUFACTURER", "WACC", "WBASENAME", "WMAG", "WMODS", "WRANGE", "WROF", "WTYPE",
+                        "", "DAMAGES", "PHYS", "ENGY", "EM", "DR", "DMG", "DPS",
+                        "", "ATHERMAL", "AAIRBORNE", "ACORROSIVE", "ARADIATION",
+                        "", "AMMO", "AMMO_ROUNDS", "FAV", "RARITY","EQUIPPED", "CONTRABAND", "STOLEN", "QTY", "FORMID", "TREATMENT",
+                        "", "TARGET_INV_COUNT", "SHIP_INV_COUNT", "PLAYER_INV_COUNT", "CONTAINER_INV_COUNT", "TOTAL_INV_COUNT"]}
+                ,{ "type": "textinput", "text": "Aid", "help": "", "id": "sDefaultSortAid:CategoryColumns", "typeSpecial" : "columns",
+                    "availableColumns": ["TAG", "MASS", "MASS_STACK", "VALUE", "VALUE_STACK", "VPM",
+                        "", "WMANUFACTURER", "WACC", "WBASENAME", "WMAG", "WMODS", "WRANGE", "WROF", "WTYPE",
+                        "", "DAMAGES", "PHYS", "ENGY", "EM", "DR", "DMG", "DPS",
+                        "", "ATHERMAL", "AAIRBORNE", "ACORROSIVE", "ARADIATION",
+                        "", "AMMO", "AMMO_ROUNDS", "FAV", "RARITY","EQUIPPED", "CONTRABAND", "STOLEN", "QTY", "FORMID", "TREATMENT",
+                        "", "TARGET_INV_COUNT", "SHIP_INV_COUNT", "PLAYER_INV_COUNT", "CONTAINER_INV_COUNT", "TOTAL_INV_COUNT"]}
+                ,{ "type": "textinput", "text": "Notes", "help": "", "id": "sDefaultSortNotes:CategoryColumns", "typeSpecial" : "columns",
+                    "availableColumns": ["TAG", "MASS", "MASS_STACK", "VALUE", "VALUE_STACK", "VPM",
+                        "", "WMANUFACTURER", "WACC", "WBASENAME", "WMAG", "WMODS", "WRANGE", "WROF", "WTYPE",
+                        "", "DAMAGES", "PHYS", "ENGY", "EM", "DR", "DMG", "DPS",
+                        "", "ATHERMAL", "AAIRBORNE", "ACORROSIVE", "ARADIATION",
+                        "", "AMMO", "AMMO_ROUNDS", "FAV", "RARITY","EQUIPPED", "CONTRABAND", "STOLEN", "QTY", "FORMID", "TREATMENT",
+                        "", "TARGET_INV_COUNT", "SHIP_INV_COUNT", "PLAYER_INV_COUNT", "CONTAINER_INV_COUNT", "TOTAL_INV_COUNT"]}
+                ,{ "type": "textinput", "text": "Resources", "help": "", "id": "sDefaultSortResources:CategoryColumns", "typeSpecial" : "columns",
+                    "availableColumns": ["TAG", "MASS", "MASS_STACK", "VALUE", "VALUE_STACK", "VPM",
+                        "", "WMANUFACTURER", "WACC", "WBASENAME", "WMAG", "WMODS", "WRANGE", "WROF", "WTYPE",
+                        "", "DAMAGES", "PHYS", "ENGY", "EM", "DR", "DMG", "DPS",
+                        "", "ATHERMAL", "AAIRBORNE", "ACORROSIVE", "ARADIATION",
+                        "", "AMMO", "AMMO_ROUNDS", "FAV", "RARITY","EQUIPPED", "CONTRABAND", "STOLEN", "QTY", "FORMID", "TREATMENT",
+                        "", "TARGET_INV_COUNT", "SHIP_INV_COUNT", "PLAYER_INV_COUNT", "CONTAINER_INV_COUNT", "TOTAL_INV_COUNT"]}
+                ,{ "type": "textinput", "text": "Misc", "help": "", "id": "sDefaultSortMisc:CategoryColumns", "typeSpecial" : "columns",
+                    "availableColumns": ["TAG", "MASS", "MASS_STACK", "VALUE", "VALUE_STACK", "VPM",
+                        "", "WMANUFACTURER", "WACC", "WBASENAME", "WMAG", "WMODS", "WRANGE", "WROF", "WTYPE",
+                        "", "DAMAGES", "PHYS", "ENGY", "EM", "DR", "DMG", "DPS",
+                        "", "ATHERMAL", "AAIRBORNE", "ACORROSIVE", "ARADIATION",
+                        "", "AMMO", "AMMO_ROUNDS", "FAV", "RARITY","EQUIPPED", "CONTRABAND", "STOLEN", "QTY", "FORMID", "TREATMENT",
+                        "", "TARGET_INV_COUNT", "SHIP_INV_COUNT", "PLAYER_INV_COUNT", "CONTAINER_INV_COUNT", "TOTAL_INV_COUNT"]}
+                ,{ "type": "textinput", "text": "New items", "help": "", "id": "sDefaultSortNewItems:CategoryColumns", "typeSpecial" : "columns",
+                    "availableColumns": ["TAG", "MASS", "MASS_STACK", "VALUE", "VALUE_STACK", "VPM",
+                        "", "WMANUFACTURER", "WACC", "WBASENAME", "WMAG", "WMODS", "WRANGE", "WROF", "WTYPE",
+                        "", "DAMAGES", "PHYS", "ENGY", "EM", "DR", "DMG", "DPS",
+                        "", "ATHERMAL", "AAIRBORNE", "ACORROSIVE", "ARADIATION",
+                        "", "AMMO", "AMMO_ROUNDS", "FAV", "RARITY","EQUIPPED", "CONTRABAND", "STOLEN", "QTY", "FORMID", "TREATMENT",
+                        "", "TARGET_INV_COUNT", "SHIP_INV_COUNT", "PLAYER_INV_COUNT", "CONTAINER_INV_COUNT", "TOTAL_INV_COUNT"]}
+                
+            ]
+        },
+        {
+            "pageDisplayName" : "Column widths",
+            "content" : [
+                { "type" : "section", "text" : "Column widths" }
+                ,{ "type": "slider", "text": "Main column width", "help": "Width of the main name column", "id": "iItemListMainColWidth:StarUI Inventory",
+                    "valueOptions" : {"min" : 0, "max" : 600, "step" : 5 }}
+                ,{ "type": "slider", "text": "Extra column width", "help": "Default column width for additional columns", "id": "iItemListExtraColWidth:StarUI Inventory",
+                    "valueOptions" : {"min" : 0, "max" : 300, "step" : 5 }}
+
+                ,{ "type" : "section", "text" : "Basic columns" }
+                ,{"type" : "slider", "text": "MASS", "id": "iColWidthMASS:CategoryColumns", "valueOptions" : {"min" : 0, "max" : 300, "step" : 5 }}
+                ,{"type" : "slider", "text": "MASS_STACK", "id": "iColWidthMASS_STACK:CategoryColumns", "valueOptions" : {"min" : 0, "max" : 300, "step" : 5 }}
+                ,{"type" : "slider", "text": "VALUE", "id": "iColWidthVALUE:CategoryColumns", "valueOptions" : {"min" : 0, "max" : 300, "step" : 5 }}
+                ,{"type" : "slider", "text": "VALUE_STACK", "id": "iColWidthVALUE_STACK:CategoryColumns", "valueOptions" : {"min" : 0, "max" : 300, "step" : 5 }}
+                ,{"type" : "slider", "text": "VPM", "id": "iColWidthVPM:CategoryColumns", "valueOptions" : {"min" : 0, "max" : 300, "step" : 5 }}
+                ,{"type" : "slider", "text": "TYPE", "id": "iColWidthTYPE:CategoryColumns", "valueOptions" : {"min" : 0, "max" : 300, "step" : 5 }}
+                
+                ,{ "type" : "section", "text" : "Weapon columns" }
+                ,{"type" : "slider", "text": "AMMO", "id": "iColWidthAMMO:CategoryColumns", "valueOptions" : {"min" : 0, "max" : 300, "step" : 5 }}
+                ,{"type" : "slider", "text": "AMMO_ROUNDS", "id": "iColWidthAMMO_ROUNDS:CategoryColumns", "valueOptions" : {"min" : 0, "max" : 300, "step" : 5 }}
+                ,{"type" : "slider", "text": "RARITY", "id": "iColWidthRARITY:CategoryColumns", "valueOptions" : {"min" : 0, "max" : 300, "step" : 5 }}
+                ,{"type" : "slider", "text": "WMANUFACTURER", "id": "iColWidthWMANUFACTURER:CategoryColumns", "valueOptions" : {"min" : 0, "max" : 300, "step" : 5 }}
+                ,{"type" : "slider", "text": "WACC", "id": "iColWidthWACC:CategoryColumns", "valueOptions" : {"min" : 0, "max" : 300, "step" : 5 }}
+                ,{"type" : "slider", "text": "WBASENAME", "id": "iColWidthWBASENAME:CategoryColumns", "valueOptions" : {"min" : 0, "max" : 300, "step" : 5 }}
+                ,{"type" : "slider", "text": "WMAG", "id": "iColWidthWMAG:CategoryColumns", "valueOptions" : {"min" : 0, "max" : 300, "step" : 5 }}
+                ,{"type" : "slider", "text": "WMODS", "id": "iColWidthWMODS:CategoryColumns", "valueOptions" : {"min" : 0, "max" : 300, "step" : 5 }}
+                ,{"type" : "slider", "text": "WRANGE", "id": "iColWidthWRANGE:CategoryColumns", "valueOptions" : {"min" : 0, "max" : 300, "step" : 5 }}
+                ,{"type" : "slider", "text": "WROF", "id": "iColWidthWROF:CategoryColumns", "valueOptions" : {"min" : 0, "max" : 300, "step" : 5 }}
+                ,{"type" : "slider", "text": "WTYPE", "id": "iColWidthWTYPE:CategoryColumns", "valueOptions" : {"min" : 0, "max" : 300, "step" : 5 }}
+
+                ,{ "type" : "section", "text" : "Damage columns" }
+                ,{"type" : "slider", "text": "DAMAGES", "id": "iColWidthDAMAGES:CategoryColumns", "valueOptions" : {"min" : 0, "max" : 300, "step" : 5 }}
+                ,{"type" : "slider", "text": "PHYS", "id": "iColWidthPHYS:CategoryColumns", "valueOptions" : {"min" : 0, "max" : 300, "step" : 5 }}
+                ,{"type" : "slider", "text": "ENGY", "id": "iColWidthENGY:CategoryColumns", "valueOptions" : {"min" : 0, "max" : 300, "step" : 5 }}
+                ,{"type" : "slider", "text": "EM", "id": "iColWidthEM:CategoryColumns", "valueOptions" : {"min" : 0, "max" : 300, "step" : 5 }}
+                ,{"type" : "slider", "text": "DR", "id": "iColWidthDR:CategoryColumns", "valueOptions" : {"min" : 0, "max" : 300, "step" : 5 }}
+                ,{"type" : "slider", "text": "DMG", "id": "iColWidthDMG:CategoryColumns", "valueOptions" : {"min" : 0, "max" : 300, "step" : 5 }}
+                ,{"type" : "slider", "text": "DPS", "id": "iColWidthDPS:CategoryColumns", "valueOptions" : {"min" : 0, "max" : 300, "step" : 5 }}
+
+                ,{ "type" : "section", "text" : "Resistance columns" }
+                ,{"type" : "slider", "text": "ATHERMAL", "id": "iColWidthATHERMAL:CategoryColumns", "valueOptions" : {"min" : 0, "max" : 300, "step" : 5 }}
+                ,{"type" : "slider", "text": "AAIRBORNE", "id": "iColWidthAAIRBORNE:CategoryColumns", "valueOptions" : {"min" : 0, "max" : 300, "step" : 5 }}
+                ,{"type" : "slider", "text": "ACORROSIVE", "id": "iColWidthACORROSIVE:CategoryColumns", "valueOptions" : {"min" : 0, "max" : 300, "step" : 5 }}
+                ,{"type" : "slider", "text": "ARADIATION", "id": "iColWidthARADIATION:CategoryColumns", "valueOptions" : {"min" : 0, "max" : 300, "step" : 5 }}
+
+                ,{ "type" : "section", "text" : "Inventory columns" }
+
+
+            ]
+        }
+    ]
+}

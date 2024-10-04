@@ -1,0 +1,194 @@
+{
+    "modName" : "StarUI Workbench",
+    "author" : "m8r98a4f2",
+    "displayName" : "StarUI Workbench",
+    "iniFileDefault" : "Interface\\StarUI Workbench (default).ini", 
+    "iniFile" : "Interface\\StarUI Workbench.ini", 
+    "teaserImage": "config.images/Workbench/StarUI_Workbench1.jpg",
+    "version": 1,
+    "pages": [
+        {
+            "pageDisplayName" : "Basic settings",
+            "content" : [
+                
+                { "type" : "section", "text" : "Options" }
+
+                ,{"type" : "switcher", "text": "Instant open/close", "help": "Instant open/close animation (Note: This won't disable the character animation)", "id": "bInstantOpenCloseAnimation:StarUI Workbench"}
+                ,{"type" : "dropdown", "text": "Text font", "id": "iUseFont:StarUI Workbench", "valueOptions" : {"options" : ["Default","NB Architekt Light","NB Architekt","NB Grotesk R Semibold","NB Grotesk R Bold","Arial (EN only)","Consolas (EN only)"]}}
+                
+                ,{"type" : "slider", "text": "List entry height", "id": "iListEntryHeight:StarUI Workbench",
+                    "valueOptions" : {"min" : 0, "max" : 100, "step" : 1 }}
+                ,{"type" : "slider", "text": "List entry font size", "id": "iListEntryFontSize:StarUI Workbench",
+                    "valueOptions" : {"min" : 0, "max" : 100, "step" : 1 }}
+                ,{"type" : "slider", "text": "Left and right padding of list cells", "id": "iListEntryPadding:StarUI Workbench",
+                    "valueOptions" : {"min" : 0, "max" : 20, "step" : 1 }}
+
+                    ,{ "type" : "section", "text" : "Icons" }
+                    ,{"type" : "switcher", "text": "Show icons","help":"Show tag icon for item (in items list)", "id": "bShowItemTagIcon:StarUI Workbench"}
+                    ,{"type" : "switcher", "text": "Show tracking icon", "help": "Show tracking icon (for trackable items, e.g. craftables or in weapons/armor mod list)", "id": "bShowTrackingIcon:StarUI Workbench"}
+                
+            ]
+        },
+        {
+            "pageDisplayName" : "Weapons/Armor",
+            "content" : [    { "type" : "section", "text" : "Weapon and armor workbenches" }
+                ,{"type" : "switcher", "text":"Stacking sub-lists", "help": "Should the sub-lists be positioned a bit to the right-bottom? (disabled if your layout has specific positions for the sub-lists)", "id": "bSubListsStackEffect:StarUI Workbench"}
+                ,{"type" : "switcher", "text": "Vanilla icons","help":"Use the bench native item icons (instead of StarUI sorting tag icons)", "id": "bUseVanillaItemIcons:StarUI Workbench"}
+                ,{"type" : "switcher", "text": "Colored icons","help":"Use colored item icons (only for StarUI item sorting tags)", "id": "bItemTagColorized:StarUI Workbench"}
+                ,{"type" : "switcher", "text": "Add favorite icon", "help":"Add a favorite item icon to weapons in quickslots", "id": "bShowFavIcon:StarUI Workbench"}
+                ,{"type" : "switcher", "text": "Use rarity color for weapon/armor", "id": "bShowRarityColors:StarUI Workbench"}
+                
+                ,{"type" : "textinput", "text": "Columns for the weapon workbench", "id": "sWeaponBenchInvListColumns:StarUI Workbench", "typeSpecial" : "columns",
+                    "availableColumns": ["MASS", "MASS_STACK", "VALUE", "VALUE_STACK", "VPM", "TYPE",
+                        "", "WMANUFACTURER", "WACC", "WBASENAME", "WMAG", "WMODS", "WRANGE", "WROF", "WTYPE",
+                        "", "DAMAGES", "PHYS", "ENGY", "EM", "DR", "DMG", "DPS",
+                        "", "RESISTANCES", "ATHERMAL", "AAIRBORNE", "ACORROSIVE", "ARADIATION",
+                        "", "AMMO", "AMMO_ROUNDS", "RARITY"]}
+                ,{"type" : "textinput", "text": "Columns for the armor workbench", "id": "sArmorBenchInvListColumns:StarUI Workbench", "typeSpecial" : "columns",
+                    "availableColumns": ["MASS", "MASS_STACK", "VALUE", "VALUE_STACK", "VPM", "TYPE",
+                        "", "WMANUFACTURER", "WACC", "WBASENAME", "WMAG", "WMODS", "WRANGE", "WROF", "WTYPE",
+                        "", "DAMAGES", "PHYS", "ENGY", "EM", "DR", "DMG", "DPS",
+                        "", "RESISTANCES", "ATHERMAL", "AAIRBORNE", "ACORROSIVE", "ARADIATION",
+                        "", "AMMO", "AMMO_ROUNDS", "RARITY"]}
+
+                ,{ "type" : "section", "text" : "Mods list" }
+
+                ,{"type" : "switcher", "text": "Show Install Tag","help":"Add install tag (Shows installed, craftable and components/skill/perk missing status)", "id": "bModListAddInstallTag:StarUI Workbench"}
+                ,{"type" : "switcher", "text": "Show mod comparison columns","help":"Add columns to show the difference to the installed mod", "id": "bModListShowDiffColumns:StarUI Workbench"}
+                
+                ,{ "type" : "section", "text" : "Active comparison columns for mods" }
+
+                ,{"type" : "switcher", "text": "Value", "id": "bDiffColValue:StarUI Workbench"}
+                ,{"type" : "switcher", "text": "Mass", "id": "bDiffColMass:StarUI Workbench"}
+                ,{"type" : "switcher", "text": "Physical damage", "id": "bDiffColDamagePhysical:StarUI Workbench"}
+                ,{"type" : "switcher", "text": "EM damage", "id": "bDiffColDamageEM:StarUI Workbench"}
+                ,{"type" : "switcher", "text": "Energy damage", "id": "bDiffColDamageEnergy:StarUI Workbench"}
+                ,{"type" : "switcher", "text": "Damage SUM", "id": "bDiffColDamageSum:StarUI Workbench"}
+                ,{"type" : "switcher", "text": "Damage per second", "id": "bDiffColDPS:StarUI Workbench"}
+                ,{"type" : "switcher", "text": "Ammo type", "id": "bDiffColAmmoType:StarUI Workbench"}
+                ,{"type" : "switcher", "text": "Ammo capacity", "id": "bDiffColAmmoCapacity:StarUI Workbench"}
+                ,{"type" : "switcher", "text": "Rate of Fire", "id": "bDiffColRateOfFire:StarUI Workbench"}
+                ,{"type" : "switcher", "text": "Range", "id": "bDiffColRange:StarUI Workbench"}
+                ,{"type" : "switcher", "text": "Accuracy", "id": "bDiffColAccuracy:StarUI Workbench"}
+                ,{"type" : "switcher", "text": "Thermal resistance", "id": "bDiffColResistThermal:StarUI Workbench"}
+                ,{"type" : "switcher", "text": "Airborne resistance", "id": "bDiffColResistAirborne:StarUI Workbench"}
+                ,{"type" : "switcher", "text": "Corrosive resistance", "id": "bDiffColResistCorrosive:StarUI Workbench"}
+                ,{"type" : "switcher", "text": "Radiation resistance", "id": "bDiffColResistRadiation:StarUI Workbench"}
+            ]
+        },
+        {
+            "pageDisplayName" : "Food/Industrial/Drugs",
+            "content" : [    { "type" : "section", "text" : "Food, industrial and drugs workbenches" }
+                ,{"type" : "slider", "text": "Max craftable amount", "help": "Max craftable amount (Vanilla: 99)", "id": "iMaxCraftableAmount:StarUI Workbench",
+                    "valueOptions" : {"min" : 10, "max" : 65530, "max_theoretically" : 65535, "step" : 10 }}
+
+                
+
+                ,{"type" : "textinput", "text": "Columns for the industrial workbench", "id": "sIndustrialBenchInvListColumns:StarUI Workbench", "typeSpecial" : "columns",
+                        "availableColumns": ["COSTS_TEXT","COSTS_ICONS","MAX_CRAFTABLE", "PLAYER_INV_COUNT", "MASS", "VALUE"]}
+                ,{"type" : "textinput", "text": "Columns for the food workbench", "id": "sFoodBenchInvListColumns:StarUI Workbench", "typeSpecial" : "columns",
+                    "availableColumns": ["COSTS_TEXT","COSTS_ICONS","MAX_CRAFTABLE", "PLAYER_INV_COUNT", "MASS", "VALUE"]}
+                ,{"type" : "textinput", "text": "Columns for the drugs workbench", "id": "sDrugsBenchInvListColumns:StarUI Workbench", "typeSpecial" : "columns",
+                    "availableColumns": ["COSTS_TEXT","COSTS_ICONS","MAX_CRAFTABLE", "PLAYER_INV_COUNT", "MASS", "VALUE", "TYPE", "TREATMENT"]}
+            ]
+        },
+        {
+            "pageDisplayName" : "Coloration",
+            "content" : [
+                { "type" : "section", "text" : "Workbench colors" }
+                ,{"type" : "textinput", "text": "Weapon workbench", "help": "Weapon workbench color (default: 179, 85,  44)", "id": "sWeaponsBenchColor:StarUI Workbench", "typeSpecial" : "color"}
+                ,{"type" : "textinput", "text": "Armor workbench", "help": "Armor workbench color (default: 149, 153, 123)", "id": "sArmorBenchColor:StarUI Workbench", "typeSpecial" : "color"}
+                ,{"type" : "textinput", "text": "Industrial workbench", "help": "Industrial workbench color (default: 37,  164, 186)", "id": "sIndustrialBenchColor:StarUI Workbench", "typeSpecial" : "color"}
+                ,{"type" : "textinput", "text": "Food workbench", "help": "Food workbench color (default: 64,  144, 86)", "id": "sFoodBenchColor:StarUI Workbench", "typeSpecial" : "color"}
+                ,{"type" : "textinput", "text": "Drugs workbench", "help": "Drugs workbench color (default: 183, 183, 183)", "id": "sDrugsBenchColor:StarUI Workbench", "typeSpecial" : "color"}
+                ,{"type" : "textinput", "text":"Custom panel background", "help": "Use a custom background color for all panels in all workbenches (e.g. acts as default for sBackgroundColor for all interface parts in the layout config)", "id": "sPanelBackgroundColor:StarUI Workbench", "typeSpecial" : "color"}
+                ,{"type" : "slider", "text": "Dark mode", "help": "Enable the dark mode. You can adjust the strength in percent. Default: 0. Recommended value for dark mode: 50", "id": "iDarkMode:StarUI Workbench",
+                    "valueOptions" : {"min" : 0, "max" : 200, "step" : 1 }}
+
+                ,{ "type" : "section", "text" : "Rarity colors" }
+                ,{"type" : "textinput", "text": "Rare", "help": "Override rare color", "id": "sRarityColorRare:StarUI Workbench", "typeSpecial" : "color"}
+                ,{"type" : "textinput", "text": "Epic", "help": "Override epic color", "id": "sRarityColorEpic:StarUI Workbench", "typeSpecial" : "color"}
+                ,{"type" : "textinput", "text": "Legendary", "help": "Override legendary color", "id": "sRarityColorLegendary:StarUI Workbench", "typeSpecial" : "color"}
+    
+            ]
+        },
+        {
+            "pageDisplayName" : "Column widths",
+            "content" : [
+
+                { "type" : "section", "text" : "Column widths" }
+                
+                ,{"type" : "slider", "text": "Default column width", "help": "Default column width for additional columns", "id": "iColWidthDefault:StarUI Workbench", "valueOptions" : {"min" : 0, "max" : 300, "step" : 5 }}
+                ,{"type" : "slider", "text": "Default mod comparison column width", "help": "Default column width for mod comparison columns", "id": "iDiffColWidth:StarUI Workbench", "valueOptions" : {"min" : 0, "max" : 300, "step" : 5 }}
+
+                ,{ "type" : "section", "text" : "Special columns" }
+                ,{"type" : "slider", "text": "COSTS_TEXT", "id": "iColWidthCOSTS_TEXT:StarUI Workbench", "valueOptions" : {"min" : 0, "max" : 600, "step" : 5 }}
+                ,{"type" : "slider", "text": "COSTS_ICONS", "id": "iColWidthCOSTS_ICONS:StarUI Workbench", "valueOptions" : {"min" : 0, "max" : 300, "step" : 5 }}
+                ,{"type" : "slider", "text": "MAX_CRAFTABLE", "id": "iColWidthMAX_CRAFTABLE:StarUI Workbench", "valueOptions" : {"min" : 0, "max" : 300, "step" : 5 }}
+                ,{"type" : "slider", "text": "PLAYER_INV_COUNT", "id": "iColWidthPLAYER_INV_COUNT:StarUI Workbench", "valueOptions" : {"min" : 0, "max" : 300, "step" : 5 }}
+
+                ,{ "type" : "section", "text" : "Basic columns" }
+                ,{"type" : "slider", "text": "MASS", "id": "iColWidthMASS:StarUI Workbench", "valueOptions" : {"min" : 0, "max" : 300, "step" : 5 }}
+                ,{"type" : "slider", "text": "MASS_STACK", "id": "iColWidthMASS_STACK:StarUI Workbench", "valueOptions" : {"min" : 0, "max" : 300, "step" : 5 }}
+                ,{"type" : "slider", "text": "VALUE", "id": "iColWidthVALUE:StarUI Workbench", "valueOptions" : {"min" : 0, "max" : 300, "step" : 5 }}
+                ,{"type" : "slider", "text": "VALUE_STACK", "id": "iColWidthVALUE_STACK:StarUI Workbench", "valueOptions" : {"min" : 0, "max" : 300, "step" : 5 }}
+                ,{"type" : "slider", "text": "VPM", "id": "iColWidthVPM:StarUI Workbench", "valueOptions" : {"min" : 0, "max" : 300, "step" : 5 }}
+                ,{"type" : "slider", "text": "TYPE", "id": "iColWidthTYPE:StarUI Workbench", "valueOptions" : {"min" : 0, "max" : 300, "step" : 5 }}
+                
+                ,{ "type" : "section", "text" : "Weapon columns" }
+                ,{"type" : "slider", "text": "AMMO", "id": "iColWidthAMMO:StarUI Workbench", "valueOptions" : {"min" : 0, "max" : 300, "step" : 5 }}
+                ,{"type" : "slider", "text": "AMMO_ROUNDS", "id": "iColWidthAMMO_ROUNDS:StarUI Workbench", "valueOptions" : {"min" : 0, "max" : 300, "step" : 5 }}
+                ,{"type" : "slider", "text": "RARITY", "id": "iColWidthRARITY:StarUI Workbench", "valueOptions" : {"min" : 0, "max" : 300, "step" : 5 }}
+                ,{"type" : "slider", "text": "WMANUFACTURER", "id": "iColWidthWMANUFACTURER:StarUI Workbench", "valueOptions" : {"min" : 0, "max" : 300, "step" : 5 }}
+                ,{"type" : "slider", "text": "WACC", "id": "iColWidthWACC:StarUI Workbench", "valueOptions" : {"min" : 0, "max" : 300, "step" : 5 }}
+                ,{"type" : "slider", "text": "WBASENAME", "id": "iColWidthWBASENAME:StarUI Workbench", "valueOptions" : {"min" : 0, "max" : 300, "step" : 5 }}
+                ,{"type" : "slider", "text": "WMAG", "id": "iColWidthWMAG:StarUI Workbench", "valueOptions" : {"min" : 0, "max" : 300, "step" : 5 }}
+                ,{"type" : "slider", "text": "WMODS", "id": "iColWidthWMODS:StarUI Workbench", "valueOptions" : {"min" : 0, "max" : 300, "step" : 5 }}
+                ,{"type" : "slider", "text": "WRANGE", "id": "iColWidthWRANGE:StarUI Workbench", "valueOptions" : {"min" : 0, "max" : 300, "step" : 5 }}
+                ,{"type" : "slider", "text": "WROF", "id": "iColWidthWROF:StarUI Workbench", "valueOptions" : {"min" : 0, "max" : 300, "step" : 5 }}
+                ,{"type" : "slider", "text": "WTYPE", "id": "iColWidthWTYPE:StarUI Workbench", "valueOptions" : {"min" : 0, "max" : 300, "step" : 5 }}
+
+                ,{ "type" : "section", "text" : "Damage columns" }
+                ,{"type" : "slider", "text": "DAMAGES", "id": "iColWidthDAMAGES:StarUI Workbench", "valueOptions" : {"min" : 0, "max" : 300, "step" : 5 }}
+                ,{"type" : "slider", "text": "PHYS", "id": "iColWidthPHYS:StarUI Workbench", "valueOptions" : {"min" : 0, "max" : 300, "step" : 5 }}
+                ,{"type" : "slider", "text": "ENGY", "id": "iColWidthENGY:StarUI Workbench", "valueOptions" : {"min" : 0, "max" : 300, "step" : 5 }}
+                ,{"type" : "slider", "text": "EM", "id": "iColWidthEM:StarUI Workbench", "valueOptions" : {"min" : 0, "max" : 300, "step" : 5 }}
+                ,{"type" : "slider", "text": "DR", "id": "iColWidthDR:StarUI Workbench", "valueOptions" : {"min" : 0, "max" : 300, "step" : 5 }}
+                ,{"type" : "slider", "text": "DMG", "id": "iColWidthDMG:StarUI Workbench", "valueOptions" : {"min" : 0, "max" : 300, "step" : 5 }}
+                ,{"type" : "slider", "text": "DPS", "id": "iColWidthDPS:StarUI Workbench", "valueOptions" : {"min" : 0, "max" : 300, "step" : 5 }}
+
+                ,{ "type" : "section", "text" : "Resistance columns" }
+                ,{"type" : "slider", "text": "RESISTANCES", "id": "iColWidthRESISTANCES:StarUI Workbench", "valueOptions" : {"min" : 0, "max" : 300, "step" : 5 }}
+                ,{"type" : "slider", "text": "ATHERMAL", "id": "iColWidthATHERMAL:StarUI Workbench", "valueOptions" : {"min" : 0, "max" : 300, "step" : 5 }}
+                ,{"type" : "slider", "text": "AAIRBORNE", "id": "iColWidthAAIRBORNE:StarUI Workbench", "valueOptions" : {"min" : 0, "max" : 300, "step" : 5 }}
+                ,{"type" : "slider", "text": "ACORROSIVE", "id": "iColWidthACORROSIVE:StarUI Workbench", "valueOptions" : {"min" : 0, "max" : 300, "step" : 5 }}
+                ,{"type" : "slider", "text": "ARADIATION", "id": "iColWidthARADIATION:StarUI Workbench", "valueOptions" : {"min" : 0, "max" : 300, "step" : 5 }}
+
+            ]
+        },
+        {
+            "pageDisplayName" : "Workbench layouts",
+            "content" : [
+                { "type" : "section", "text" : "Workbench layouts" }
+                ,{ "type" : "image", "images": [
+                    {"src" : "config.images/Workbench/Preset%20Vanilla.jpg", "maxWidth": "23%", "description": "Layout Vanilla"},
+                    {"src" : "config.images/Workbench/Preset Vanilla Extended.jpg", "maxWidth": "23%", "description": "Layout Vanilla Extended"},
+                    {"src" : "config.images/Workbench/Preset Hoarder.jpg", "maxWidth": "23%", "description": "Layout Hoarder"},
+                    {"src" : "config.images/Workbench/Preset Hoarder Alternate.jpg", "maxWidth": "23%", "description": "Layout Hoarder Alternate"}
+                ]}
+
+                ,{"type" : "dropdown", "text": "Weapon workbench", "id": "sWeapons:Layout",
+                    "valueOptions" : {"options" : ["Vanilla","Vanilla Extended","Hoarder","Hoarder Alternate"]} }
+                ,{"type" : "dropdown", "text": "Armor workbench", "id": "sArmor:Layout",
+                    "valueOptions" : {"options" : ["Vanilla","Vanilla Extended","Hoarder","Hoarder Alternate"]} }
+                ,{"type" : "dropdown", "text": "Industrial workbench", "id": "sIndustrial:Layout",
+                    "valueOptions" : {"options" : ["Vanilla","Vanilla Extended","Hoarder","Hoarder Alternate"]} }
+                ,{"type" : "dropdown", "text": "Food workbench", "id": "sFood:Layout",
+                    "valueOptions" : {"options" : ["Vanilla","Vanilla Extended","Hoarder","Hoarder Alternate"]} }
+                ,{"type" : "dropdown", "text": "Drugs workbench", "id": "sDrugs:Layout",
+                    "valueOptions" : {"options" : ["Vanilla","Vanilla Extended","Hoarder","Hoarder Alternate"]} }
+            ]
+        }
+
+    ]
+}

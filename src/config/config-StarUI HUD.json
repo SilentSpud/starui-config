@@ -1,0 +1,572 @@
+{
+    "modName": "StarUI HUD",
+    "author": "m8r98a4f2",
+    "displayName": "StarUI HUD",
+    "iniFileDefault": "Interface\\StarUI HUD (default).ini",
+    "iniFile": "Interface\\StarUI HUD.ini",
+    "teaserImage": "config.images/HUD/StarUI_Hud_Teaser.jpg",
+    "version": 1,
+    "pages": [
+        {
+            "pageDisplayName": "Basic settings",
+            "content": [
+                { "type" : "section", "text" : "Basic settings" }
+                ,{ "type": "textinput", "text": "Default HUD color", "help": "Default HUD color (may be overridden by a elements special color)", "id": "sHudDefaultColor:StarUI HUD", "typeSpecial" : "color"}
+                ,{ "type": "switcher", "text": "Hard drop-down-shadows", "help": "Use hard drop-down-shadows instead of soft ones", "id": "bHudHardDropDownShadow:StarUI HUD"}
+                ,{ "type": "switcher", "text": "Preventing accidental steals", "help": "Preventing accidental steals. You need to sneak to to steal.", "id": "bHudPreventStealAccident:StarUI HUD"}
+                ,{ "type": "switcher", "text": " - Allow stealing of mines", "help": "Always allow stealing of mines. Better to steal than to explode!", "id": "bHudPreventStealAccidentIgnoreMines:StarUI HUD"}
+                ,{ "type" : "section", "text" : "Item marker circle / leading line" }
+                ,{ "type": "text", "html":true,"text": "<font color='#aaaaaa'>This is the circle on objects in the world you are looking at\nNote: When using the new TagLabel it's recommended to it disabled.Enable or disable the line from the item marker (circle) to other elements for different types of viewed element when viewing...\n</font>"}
+                ,{ "type": "switcher", "text": "...a generic entity (bed, chair,...)", "help": "...when viewing a generic entity (bed, chair,...)", "id": "bHudReticleLineForGeneric:StarUI HUD"}
+                ,{ "type": "switcher", "text": "...item without item card", "help": "...when viewing an item without item card (late game)", "id": "bHudReticleLineForSingleItem:StarUI HUD"}
+                ,{ "type": "switcher", "text": "...item with item card", "help": "...when viewing an item with item card", "id": "bHudReticleLineForSingleItemWithItemCard:StarUI HUD"}
+                ,{ "type": "switcher", "text": "...item with an inventory", "help": "...when viewing a inventory", "id": "bHudReticleLineForLootList:StarUI HUD"}
+                ,{ "type": "textinput", "text": "Item marker circle and line color", "help": "Colorize your item marker circle (and line)", "id": "sHudReticleColor:StarUI HUD", "typeSpecial" : "color"}
+                ,{ "type": "textinput", "text": " - Steal color", "help": "", "id": "sHudReticleStealColor:StarUI HUD", "typeSpecial" : "color"}
+                ,{ "type" : "section", "text" : "Item Label (vanilla)" }
+                ,{ "type": "textinput", "text": "Item label box Color", "help": "The white box you see mostly in Vanilla and Vanilla Extended when hovering things without item cards", "id": "sLabelColor:StarUI HUD", "typeSpecial" : "color"}
+                ,{ "type": "textinput", "text": " - Steal color", "help": "", "id": "sLabelStealColor:StarUI HUD", "typeSpecial" : "color"}
+                ,{ "type": "textinput", "text": " - Contraband color", "help": "", "id": "sLabelContrabandColor:StarUI HUD", "typeSpecial" : "color"}
+
+                ,{ "type" : "section", "text" : "Big Door" }
+                ,{ "type": "switcher", "text": "Enables Big Door icon indicator", "help": "Enables a big door icon indicator when you look at a door which leads to other areas/cells (part of Tag Lable)", "id": "bHudEnableBigDoorIcon:StarUI HUD"}
+                ,{ "type": "textinput", "text": "Big Door color", "help": "Colorize the door icon", "id": "sHudBigDoorColor:StarUI HUD", "typeSpecial" : "color"}
+                ,{ "type" : "section", "text" : "Button bar" }
+                ,{ "type": "switcher", "text": "Smaller buttons", "help": "Smaller buttons for the button bar", "id": "bButtonBarSmallerButtons:StarUI HUD"}
+                ,{ "type": "textinput", "text": "Button bar color", "help": "Colorize the button bar", "id": "sHudButtonBarColor:StarUI HUD", "typeSpecial" : "color"}
+                ,{ "type": "textinput", "text": " - Steal color", "help": "", "id": "sHudButtonBarStealColor:StarUI HUD", "typeSpecial" : "color"}
+                ,{ "type": "slider", "text": " - Opacity", "help": "Fade out things you read once and never need again", "id": "iButtonBarOpacity:StarUI HUD",
+                    "valueOptions" : {"min" : 0, "max" : 100, "step" : 1 }}
+                ,{ "type" : "section", "text" : "Rarity colors" }
+                ,{ "type": "textinput", "text": "Rare", "help": "", "id": "sRarityColorRare:StarUI HUD", "typeSpecial" : "color"}
+                ,{ "type": "textinput", "text": "Epic", "help": "", "id": "sRarityColorEpic:StarUI HUD", "typeSpecial" : "color"}
+                ,{ "type": "textinput", "text": "Legendary", "help": "", "id": "sRarityColorLegendary:StarUI HUD", "typeSpecial" : "color"}
+    
+            ]
+        },
+        {
+            "pageDisplayName" : "Tag Label",
+            "content" : [
+                { "type" : "image", "src" : "config.images/HUD/TagLabel.jpg", "maxWidth": "50%", "description": "A Tag Label in the game."}
+                ,{ "type" : "section", "text" : "Tag Label" }
+                ,{ "type": "switcher", "text": "Show Tag label at crosshair", "help": "Displays a smaller widget for the item instead of only big item card - Fixed at the crosshair or (optional) floating above the item in the world", "id": "bHudEnableTagLabelCrosshair:StarUI HUD"}
+                ,{ "type": "switcher", "text": "Show Tag label in the world", "help": " But this one is bound to the world item (You should only use one to prevent confusion)", "id": "bHudEnableTagLabelWorld:StarUI HUD"}
+                ,{ "type": "switcher", "text": "Moves the button bar to the Tag Label", "help": "Moves the button bar to the new tag label", "id": "bButtonBarMoveToTagLabel:StarUI HUD"}
+                ,{ "type": "slider", "text": "Position X", "help": "Position of the Tag Label (relative to crosshair/world item)", "id": "fHudTagPositionX:StarUI HUD",
+                    "valueOptions" : {"min" : -200, "max" : 200, "step" : 1 }}
+                ,{ "type": "slider", "text": "Position Y", "help": "", "id": "fHudTagPositionY:StarUI HUD",
+                    "valueOptions" : {"min" : -200, "max" : 200, "step" : 1 }}
+                ,{ "type": "slider", "text": "Scale", "help": "Scale (size) of the Tag Label (in percent)", "id": "iHudTagLabelScale:StarUI HUD",
+                    "valueOptions" : {"min" : 0, "max" : 200, "step" : 1 }}
+                ,{ "type": "switcher", "text": "Item tag icon", "help": "Add an item tag icon to items", "id": "bHudTagShowItemTags:StarUI HUD"}
+                ,{ "type": "textinput", "text": "Color", "help": "Colorize", "id": "sHudTagLabelColor:StarUI HUD", "typeSpecial" : "color"}
+                ,{ "type": "textinput", "text": " - Steal color", "help": "", "id": "sHudTagLabelStealColor:StarUI HUD", "typeSpecial" : "color"}
+                ,{ "type": "textinput", "text": " - Contraband color", "help": "", "id": "sHudTagLabelContrabandColor:StarUI HUD", "typeSpecial" : "color"}
+                ,{ "type": "switcher", "text": "Forceitem tag icon color", "help": "Force the item tag icon to be in the same color as the label", "id": "bHudTagLabelForceTagIconColor:StarUI HUD"}
+            ]
+        },
+        {
+            "pageDisplayName" : " - Loot-O-Meter",
+            "content" : [
+                { "type" : "image", "src" : "config.images/HUD/LootOMeter.jpg", "maxWidth": "25%", "description": "The Loot-O-Meter indicates the items value"}
+                ,{ "type" : "section", "text" : "Loot-O-Meter" }
+                ,{ "type": "text", "text": "Loot-O-Meter (not yet registered trademark) - The higher the V/M value, the fuller the bar."}
+                ,{ "type": "switcher", "text": "Enable Loot-O-Meber", "help": "", "id": "bHudTagLabelLootOMeter:StarUI HUD"}
+                ,{ "type" : "section", "text" : "Bar fill calculation" }
+                ,{ "type": "slider", "text": "Min. value/mass", "help": "Bar fill calculation is based on value/mass. The bar will start filling from this min. value/mass. When the value/mass is below this the Loot-O-Meter will be hidden.", "id": "iLootOMeterMinValue:StarUI HUD",
+                    "valueOptions" : {"min" : 0, "max" : 5000, "step" : 5 }}
+                ,{ "type": "slider", "text": "Min. value/mass to show", "help": "When the value/mass is below this value the Loot-O-Meter will be hidden.", "id": "iLootOMeterMinShowValue:StarUI HUD",
+                    "valueOptions" : {"min" : 0, "max" : 5000, "step" : 5 }}
+                ,{ "type": "slider", "text": "Max. value/mass", "help": "This will define at which value/mass the bar is 'full'.", "id": "iLootOMeterMaxValue:StarUI HUD",
+                    "valueOptions" : {"min" : 0, "max" : 10000, "step" : 100 }}
+                ,{ "type": "slider", "text": "Min mass for calculation", "help": "This will define a min mass for the calculation, so 'spoons' are not marked as valuable.", "id": "fLootOMeterMinMass:StarUI HUD",
+                    "valueOptions" : {"min" : 0, "max" : 1, "step" : 0.01 }}
+                                
+                ,{ "type" : "section", "text" : "Appearance" }
+                ,{ "type": "slider", "text": "Width", "help": "", "id": "iLootOMeterWidth:StarUI HUD",
+                "valueOptions" : {"min" : 0, "max" : 500, "step" : 5 }}
+                ,{ "type": "slider", "text": "Height", "help": "", "id": "iLootOMeterHeight:StarUI HUD",
+                    "valueOptions" : {"min" : 0, "max" : 100, "step" : 1 }}
+                ,{ "type": "slider", "text": "Round edges", "help": "", "id": "iLootOMeterRoundEdges:StarUI HUD",
+                    "valueOptions" : {"min" : 0, "max" : 50, "step" : 1 }}
+                    ,{ "type" : "section", "text" : "Colors" }
+                ,{ "type": "textinput", "text": "Background color", "help": "", "id": "sLootOMeterBgColor:StarUI HUD", "typeSpecial" : "color"}
+                ,{ "type": "textinput", "text": "Bar color", "help": "", "id": "sLootOMeterBarColor:StarUI HUD", "typeSpecial" : "color"}
+                ,{ "type": "switcher", "text": "Color by value", "help": "Makes the color changes based on how much the bar is filled up", "id": "bLootOMeterColorBasedOnValue:StarUI HUD"}
+                ,{ "type": "textinput", "text": " - Cheap color", "help": "", "id": "sLootOMeterValueBasedColor1:StarUI HUD", "typeSpecial" : "color"}
+                ,{ "type": "textinput", "text": " - Middle color", "help": "", "id": "sLootOMeterValueBasedColor2:StarUI HUD", "typeSpecial" : "color"}
+                ,{ "type": "textinput", "text": " - Precious color", "help": "", "id": "sLootOMeterValueBasedColor3:StarUI HUD", "typeSpecial" : "color"}
+            ]
+        },
+            {
+                "pageDisplayName" : "Item cards",
+                "content" : [
+                { "type" : "image", "src" : "config.images/HUD/ItemCard.jpg", "maxWidth": "25%", "description": "An item card for a Grendel."}
+                ,{ "type" : "section", "text" : "Item card (normal mode)" }
+                ,{ "type": "switcher", "text": "Item tag icon", "help": "Display the item tag icon in the item card", "id": "bItemCardAddItemTag:StarUI HUD"}
+                ,{ "type": "switcher", "text": " - Colored", "help": "Enable colored version of item tag", "id": "bItemCardItemTagColored:StarUI HUD"}
+                ,{ "type": "switcher", "text": "Add value per mass", "help": "Add a new entry for the value per mass", "id": "bItemCardAddValuePerMass:StarUI HUD"}
+                ,{ "type": "switcher", "text": "Add Burst DPS (Damage Per Second)", "help": "Add a new entry for Burst DPS (Damage per second, without reloading time)", "id": "bItemCardAddDPS:StarUI HUD"}
+                ,{ "type": "textinput", "text": "Item card color", "help": "Colorize the item card", "id": "sItemCardColor:StarUI HUD", "typeSpecial" : "color"}
+                ,{ "type": "textinput", "text": " - Steal color", "help": "Colorize the item card for STEAL mode", "id": "sItemCardStealColor:StarUI HUD", "typeSpecial" : "color"}
+                ,{ "type": "textinput", "text": " - Contraband color", "help": "Colorize the item card for CONTRABAND mode", "id": "sItemCardContrabandColor:StarUI HUD", "typeSpecial" : "color"}
+                ,{ "type": "textinput", "text": "Reticle line anchor", "help": "Define where the reticle line should attach to (leave empty for auto-aligning it to the left side of the item card headers bottom line)", "id": "sItemCardReticleLineAttachAnchor:StarUI HUD"}
+
+                ,{ "type": "slider", "text": "Position X", "help": "", "id": "fPositionX:ItemCard_SingleItem",
+                    "valueOptions" : {"min" : 0, "max" : 1920, "step" : 1 }}
+                ,{ "type": "slider", "text": "Position Y", "help": "", "id": "fPositionY:ItemCard_SingleItem",
+                    "valueOptions" : {"min" : 0, "max" : 1080, "step" : 1 }}
+                ,{ "type": "slider", "text": "Max height", "help": "Specify the max height. The item card will be scaled down if the limit is exceeded. (Default is to respect the remaining screen space)", "id": "fMaxHeight:ItemCard_SingleItem",
+                    "valueOptions" : {"min" : 0, "max" : 1000, "step" : 1 }}
+                ,{ "type": "textinput", "text": "Anchor", "help": "Valid anchor values: TopLeft, TopRight, BottomLeft, BottomRight, X% Y%", "id": "sAnchor:ItemCard_SingleItem"}
+                ,{ "type": "slider", "text": "Scale", "help": "Scaling (size) of the item card (in percent)", "id": "iScale:ItemCard_SingleItem",
+                    "valueOptions" : {"min" : 0, "max" : 200, "step" : 1 }}
+
+                ,{ "type" : "section", "text" : "Item card (Scan mode)" }
+                ,{ "type": "slider", "text": "Position X", "help": "", "id": "fPositionX:ItemCard_SingleItem_ScanMode",
+                    "valueOptions" : {"min" : 0, "max" : 1920, "step" : 1 }}
+                ,{ "type": "slider", "text": "Position Y", "help": "", "id": "fPositionY:ItemCard_SingleItem_ScanMode",
+                    "valueOptions" : {"min" : 0, "max" : 1080, "step" : 1 }}
+                ,{ "type": "slider", "text": "Max height", "help": "", "id": "fMaxHeight:ItemCard_SingleItem_ScanMode",
+                    "valueOptions" : {"min" : 0, "max" : 1000, "step" : 1 }}
+                ,{ "type": "textinput", "text": "Anchor", "help": "Valid anchor values: TopLeft, TopRight, BottomLeft, BottomRight, X% Y%", "id": "sAnchor:ItemCard_SingleItem_ScanMode"}
+                ,{ "type": "slider", "text": "Scale", "help": "Scaling (size) of the item card (in percent)", "id": "iScale:ItemCard_SingleItem_ScanMode",
+                    "valueOptions" : {"min" : 0, "max" : 200, "step" : 1 }}
+                ]
+            },
+            {
+                "pageDisplayName" : "Loot list",
+                "content" : [
+                { "type" : "image", "src" : "config.images/HUD/LootList.jpg", "maxWidth": "25%", "description": "An upgraded Loot List."}
+                ,{ "type" : "section", "text" : "Loot List" }
+                ,{ "type": "switcher", "text": "Enable StarUI Loot List", "help": "Enable StarUI HUD's upgraded loot list with icons, extra information, resizable and more", "id": "bEnable:LootList"}
+                ,{ "type": "switcher", "text": "Item icon tags", "help": "Show item icon tags in the list", "id": "bShowItemTags:LootList"}
+                ,{ "type": "switcher", "text": " - Colored", "help": "Enable colored version of item tag", "id": "bItemTagColored:LootList"}
+                ,{ "type": "textinput", "text": "Additional columns", "help": "Tip: You can toggle the sort when looking at the list and pressing ALT key", "id": "sAddColumns:LootList", "typeSpecial" : "columns",
+                    "availableColumns": ["MASS", "MASS_STACK", "VALUE", "VALUE_STACK", "VPM", "TYPE",
+                        "", "WMANUFACTURER", "WACC", "WBASENAME", "WMAG", "WMODS", "WRANGE", "WROF", "WTYPE",
+                        "", "DAMAGES", "PHYS", "ENGY", "EM", "DR", "DMG", "DPS",
+                        "", "RESISTANCES", "ATHERMAL", "AAIRBORNE", "ACORROSIVE", "ARADIATION",
+                        "", "AMMO", "AMMO_ROUNDS", "RARITY", "QTY", "FORMID"]}
+                ,{ "type": "textinput", "text": " - Default sort", "help": "Sort the loot list by a column (the column does not need to be visible). You can use TAG here to sort by the items tag. Leave empty or use GAME for vanilla sort.", "id": "sSortByColumn:LootList", "typeSpecial" : "columns",
+                    "availableColumns": ["MASS", "MASS_STACK", "VALUE", "VALUE_STACK", "VPM", "TYPE",
+                        "", "WMANUFACTURER", "WACC", "WBASENAME", "WMAG", "WMODS", "WRANGE", "WROF", "WTYPE",
+                        "", "DAMAGES", "PHYS", "ENGY", "EM", "DR", "DMG", "DPS",
+                        "", "RESISTANCES", "ATHERMAL", "AAIRBORNE", "ACORROSIVE", "ARADIATION",
+                        "", "AMMO", "AMMO_ROUNDS", "RARITY", "QTY", "FORMID",
+                        "", "TAG","GAME"]}
+                ,{ "type": "slider", "text": " - Column width", "help": "Width of the additional column", "id": "iExtraColumnWidth:LootList",
+                    "valueOptions" : {"min" : 0, "max" : 100, "step" : 1 }}
+                ,{ "type": "switcher", "text": "Add 'Take All' function", "help": "Add the extra function 'Take All' to loot list (Hold SHIFT and press TAKE to take all at once)", "id": "bAddTakeAll:LootList"}
+                ,{ "type": "switcher", "text": "Show item card for Loot List", "help": "Show an item card to the item you have hovered in the list (for position/scale see the next sections)", "id": "bShowItemCard:LootList"}
+                ,{ "type": "textinput", "text": " - For item categories", "help": "Select categories for the item card. Only list items in this categories will show a item card", "id": "sShowItemCardCategories:LootList"}
+    
+                ,{ "type" : "section", "text" : "Appearance" }
+                ,{ "type": "slider", "text": "Scale", "help": "Scale (size) of the whole list", "id": "iScale:LootList",
+                    "valueOptions" : {"min" : 0, "max" : 200, "step" : 1 }}
+                ,{ "type": "slider", "text": "List entry height", "help": "", "id": "iListEntryHeight:LootList",
+                    "valueOptions" : {"min" : 0, "max" : 100, "step" : 1 }}
+                ,{ "type": "slider", "text": "List entry font size", "help": "", "id": "iListEntryFontSize:LootList",
+                    "valueOptions" : {"min" : 0, "max" : 100, "step" : 1 }}
+                ,{ "type": "switcher", "text": "Auto list height", "help": "Auto-adapt list height to content (max to the specified height below)", "id": "bAdaptHeightToContent:LootList"}
+                ,{ "type": "textinput", "text": "List color", "help": "Colorize the list!", "id": "sColor:LootList", "typeSpecial" : "color"}
+                ,{ "type": "textinput", "text": " - Steal color", "help": "", "id": "sStealColor:LootList", "typeSpecial" : "color"}
+        
+                ,{ "type" : "section", "text" : "Position and size (Normal mode)" }
+                ,{ "type": "slider", "text": "Position X", "help": "List position in normal mode (Default: 1193, 302)", "id": "fPositionX:LootList",
+                    "valueOptions" : {"min" : 0, "max" : 1920, "step" : 1 }}
+                ,{ "type": "slider", "text": "Position Y", "help": "", "id": "fPositionY:LootList",
+                    "valueOptions" : {"min" : 0, "max" : 1080, "step" : 1 }}
+                ,{ "type": "slider", "text": "Width", "help": "List dimension in normal mode (Vanilla: 373x248, Default: 373x390)", "id": "iWidth:LootList",
+                    "valueOptions" : {"min" : 0, "max" : 1000, "step" : 1 }}
+                ,{ "type": "slider", "text": "Height", "help": "", "id": "iHeight:LootList",
+                    "valueOptions" : {"min" : 0, "max" : 1000, "step" : 1 }}
+
+                ,{ "type" : "section", "text" : "Item card (Normal mode)" }
+                ,{ "type": "slider", "text": "Position X", "help": "", "id": "fPositionX:LootList.ItemCard",
+                    "valueOptions" : {"min" : 0, "max" : 1920, "step" : 1 }}
+                ,{ "type": "slider", "text": "Position Y", "help": "", "id": "fPositionY:LootList.ItemCard",
+                    "valueOptions" : {"min" : 0, "max" : 1080, "step" : 1 }}
+                ,{ "type": "textinput", "text": "Anchor", "help": "Valid anchor values: TopLeft, TopRight, BottomLeft, BottomRight, X% Y%", "id": "sAnchor:LootList.ItemCard"}
+                ,{ "type": "slider", "text": "Scale", "help": "", "id": "iScale:LootList.ItemCard",
+                    "valueOptions" : {"min" : 0, "max" : 200, "step" : 1 }}
+                ,{ "type": "slider", "text": "Max height", "help": "", "id": "fMaxHeight:LootList.ItemCard",
+                    "valueOptions" : {"min" : 0, "max" : 1000, "step" : 1 }}
+
+                ,{ "type" : "section", "text" : "Position and size (Scan mode)" }
+                ,{ "type": "slider", "text": "Position X", "help": "Note: The list headline is provided by the scanner interface. Keep that in mind when changing the position in scanner mode.", "id": "fScannerPositionX:LootList",
+                    "valueOptions" : {"min" : 0, "max" : 1920 , "step" : 1 }}
+                ,{ "type": "slider", "text": "Position Y", "help": "", "id": "fScannerPositionY:LootList",
+                    "valueOptions" : {"min" : 0, "max" : 1080, "step" : 1 }}
+                ,{ "type": "slider", "text": "Width", "help": "Loot list dimension in scanner mode", "id": "iScannerWidth:LootList",
+                    "valueOptions" : {"min" : 0, "max" : 1000, "step" : 1 }}
+                ,{ "type": "slider", "text": "Height", "help": "", "id": "iScannerHeight:LootList",
+                    "valueOptions" : {"min" : 0, "max" : 1000, "step" : 1 }}
+                ,{ "type": "textinput", "text": "Attach point anchor", "help": "Attach point of the reticle line (from item circle to the list). Available: TopLeft, TopRight, BottomLeft, BottomRight", "id": "sReticleLineAttachPoint:LootList"}
+
+    
+                ,{ "type" : "section", "text" : "Item card (Scan mode)" }
+                ,{ "type": "slider", "text": "Position X", "help": "", "id": "fPositionX:LootList.ItemCard_ScanMode",
+                    "valueOptions" : {"min" : 0, "max" : 1920, "step" : 1 }}
+                ,{ "type": "slider", "text": "Position Y", "help": "", "id": "fPositionY:LootList.ItemCard_ScanMode",
+                    "valueOptions" : {"min" : 0, "max" : 1080, "step" : 1 }}
+                ,{ "type": "slider", "text": "Scale", "help": "", "id": "iScale:LootList.ItemCard_ScanMode",
+                    "valueOptions" : {"min" : 0, "max" : 200, "step" : 1 }}
+                ,{ "type": "textinput", "text": "Anchor", "help": "Valid anchor values: TopLeft, TopRight, BottomLeft, BottomRight, X% Y%", "id": "sAnchor:LootList.ItemCard_ScanMode"}
+                ,{ "type": "slider", "text": "Max height", "help": "", "id": "fMaxHeight:LootList.ItemCard_ScanMode",
+                    "valueOptions" : {"min" : 0, "max" : 1000, "step" : 1 }}
+                ]
+            },
+            {
+                "pageDisplayName" : "Watch",
+                "content" : [
+                { "type" : "image", "src" : "config.images/HUD/Watch.jpg", "maxWidth": "33%", "description": "The Watch. But you can't read the time from it."}
+                ,{ "type" : "section", "text" : "Watch" }
+                ,{ "type": "switcher", "text": "Enable widget", "help": "The watch in the bottom left area", "id": "bEnabled:Watch"}
+                ,{ "type": "textinput", "text": "Widget color", "help": "Colorize the widget. If the value is empty, the default HUD color will be used.", "id": "sColor:Watch", "typeSpecial" : "color"}
+                ,{ "type": "switcher", "text": " - Force color", "help": "Force color on widget (Warning: This will remove any color/brightness)", "id": "bForceColor:Watch"}
+                ,{ "type": "slider", "text": "Position X", "help": "Re-position the widget - default position: 72, 808 (for 16:9. Different on widescreen!)", "id": "fPositionX:Watch",
+                    "valueOptions" : {"min" : 0, "max" : 1920, "step" : 1 }}
+                ,{ "type": "slider", "text": "Position Y", "help": "", "id": "fPositionY:Watch",
+                    "valueOptions" : {"min" : 0, "max" : 1080, "step" : 1 }}
+                ,{ "type": "slider", "text": "Scale", "help": "Note scale and rotation work only with disabled 3D effect", "id": "fScale:Watch",
+                    "valueOptions" : {"min" : 0, "max" : 200, "step" : 1 }}
+                ,{ "type": "slider", "text": "Rotation", "help": "Note scale and rotation work only with disabled 3D effect", "id": "fRotation:Watch",
+                    "valueOptions" : {"min" : 0, "max" : 360, "step" : 1 }}
+                ,{ "type": "switcher", "text": "Disable the 3D effect", "help": "Disable the 3D effect", "id": "bDisable3D:Watch"}
+                ,{ "type": "textinput", "text": "Custom 3D Matrix", "help": "Adjust the 3D transformation matrix. Warning: Only for 3D experts!\nDefault: 1.065422, -0.06871, -0.150934, 0, -0.037639, 1.062183, 0.191458, 0, 0.127329, -0.171576, 0.976908, 0, 41.719982, 807.84552, -4.454321, 1", "id": "s3DTransformationMatrix:Watch"}
+                ,{ "type": "switcher", "text": "Enable mission markers", "help": "Enable mission markers", "id": "bEnableMissionMarker:Watch"}
+                ,{ "type": "switcher", "text": "Enable enemy markers", "help": "Enable enemy markers", "id": "bEnableEnemyMarker:Watch"}
+                ,{ "type": "switcher", "text": "Enable special marker (like your ship)", "help": "Enable special marker (like your ship)", "id": "bEnableSpecialMarker:Watch"}
+                ,{ "type": "switcher", "text": "Enable compass", "help": "Enable compass", "id": "bEnableCompass:Watch"}
+                ,{ "type": "switcher", "text": "Enable O2 bar (normal mode)", "help": "Enable O2 bar (normal mode)", "id": "bEnableO2Bar:Watch"}
+                ,{ "type": "switcher", "text": "Enable planet icon", "help": "Enable planet icon", "id": "bEnablePlanetIcon:Watch"}
+                ,{ "type": "switcher", "text": "Enable location name", "help": "Enable location name", "id": "bEnableLocationName:Watch"}
+                ,{ "type" : "section", "text" : "Scan mode parts" }
+                ,{ "type": "switcher", "text": "Enable O2 bar", "help": "", "id": "bEnableScanO2Bar:Watch"}
+                ,{ "type": "switcher", "text": "Enable temperature", "help": "", "id": "bEnableScanTemperature:Watch"}
+                ,{ "type": "switcher", "text": "Enable oxygen", "help": "", "id": "bEnableScanOxygen:Watch"}
+                ,{ "type": "switcher", "text": "Enable gravitation", "help": "", "id": "bEnableScanGrav:Watch"}
+                ,{ "type": "switcher", "text": "Enable location text", "help": "", "id": "bEnableScanLocationText:Watch"}
+                ,{ "type": "switcher", "text": "Enable bio alert text", "help": "", "id": "bEnableScanBioAlertText:Watch"}
+                ,{ "type": "switcher", "text": "Enable environment alert text", "help": "", "id": "bEnableScanEnvAlertText:Watch"}
+            ]
+        },
+        {
+            "pageDisplayName" : "Player meter",
+            "content" : [
+                { "type" : "image", "src" : "config.images/HUD/PlayerMeter.jpg", "maxWidth": "50%", "description": "The player meter displays various stats"}
+                ,{ "type" : "section", "text" : "Player meter" }
+                ,{ "type" : "text", "text" : "Displays player health, weapon, grenades etc." }
+                ,{ "type": "switcher", "text": "Enable player meter", "help": "Displays player health, weapon, grenades etc.", "id": "bEnabled:RightMeters"}
+                ,{ "type": "textinput", "text": "Widget color", "help": "Colorize the widget. If the value is empty, the default HUD color will be used.", "id": "sColor:RightMeters", "typeSpecial" : "color"}
+                ,{ "type": "switcher", "text": " - Force color", "help": "Force color on widget (Warning: This will remove any color/brightness)", "id": "bForceColor:RightMeters"}
+                ,{ "type": "slider", "text": "Position X", "help": "Re-position the widget - default position: 1836, 1032 (for 16:9. Different on widescreen!)", "id": "fPositionX:RightMeters",
+                    "valueOptions" : {"min" : 0, "max" : 1920, "step" : 1 }}
+                ,{ "type": "slider", "text": "Position Y", "help": "", "id": "fPositionY:RightMeters",
+                    "valueOptions" : {"min" : 0, "max" : 1080, "step" : 1 }}
+                ,{ "type": "slider", "text": "Scale", "help": "Note scale and rotation work only with disabled 3D effect", "id": "fScale:RightMeters",
+                    "valueOptions" : {"min" : 0, "max" : 200, "step" : 1 }}
+                ,{ "type": "slider", "text": "Rotation", "help": "Note scale and rotation work only with disabled 3D effect", "id": "fRotation:RightMeters",
+                    "valueOptions" : {"min" : 0, "max" : 360, "step" : 1 }}
+                ,{ "type": "switcher", "text": "Disable the 3D effect", "help": "Disable the 3D effect", "id": "bDisable3D:RightMeters"}
+                ,{ "type": "textinput", "text": "Custom 3D Matrix", "help": "Adjust the 3D transformation matrix. Warning: Only for 3D experts!\nDefault: 0.958322, 0, -0.285688, 0, -0.014952, 0.99863, -0.050155, 0, 0.285297, 0.052336, 0.957009, 0, 1879.831787, 1042.355225, 16.766846, 1", "id": "s3DTransformationMatrix:RightMeters"}
+            ]
+        },
+        {
+            "pageDisplayName" : "Crosshair",
+            "content" : [
+                { "type" : "section", "text" : "Crosshair" }
+                ,{ "type": "switcher", "text": "Enable crosshair", "help": "The crosshair", "id": "bEnabled:Crosshair"}
+                ,{ "type": "textinput", "text": "Widget color", "help": "Colorize the widget. If the value is empty, the default HUD color will be used.", "id": "sColor:Crosshair", "typeSpecial" : "color"}
+                ,{ "type": "switcher", "text": " - Force color", "help": "Force color on widget (Warning: This will remove any color/brightness)", "id": "bForceColor:Crosshair"}
+                ,{ "type": "slider", "text": "Position X", "help": "Re-position the widget - default position: 960, 540", "id": "fPositionX:Crosshair",
+                    "valueOptions" : {"min" : 0, "max" : 1920, "step" : 1 }}
+                ,{ "type": "slider", "text": "Position Y", "help": "", "id": "fPositionY:Crosshair",
+                    "valueOptions" : {"min" : 0, "max" : 1080, "step" : 1 }}
+                ,{ "type": "slider", "text": "Scale", "help": "", "id": "fScale:Crosshair",
+                    "valueOptions" : {"min" : 0, "max" : 400, "step" : 1 }}
+                ,{ "type": "slider", "text": "Rotation", "help": "", "id": "fRotation:Crosshair",
+                    "valueOptions" : {"min" : 0, "max" : 360, "step" : 1 }}
+                ,{ "type": "switcher", "text": "Show when aiming", "help": "Show crosshair when aiming (first person)", "id": "bShowInIronSights:Crosshair"}
+                ,{ "type": "switcher", "text": "Enable spread animation", "help": "Enable the spread animation (how far bullets go from the crosshairs center)", "id": "bEnableSpreadIndication:Crosshair"}
+                ,{ "type": "switcher", "text": "Show weapon/tool is effective", "help": "Show if a weapon/tool is effective by changing the color", "id": "bEnableEffectiveIndication:Crosshair"}
+                ,{ "type" : "section", "text" : "Crosshair replacement mode" }
+                ,{ "type" : "text", "text" : "Easily replace the crosshair by pre-defined types! Available modes:\nDefault          - Default!\nDotOnly          - Show only the DOT crosshair (always)\nDotWhenNotAiming - Show the DOT crosshair when not aiming (for all weapon crosshairs)\nNone             - No Crosshair at all\nCustom           - Define your own replacements (in the area below)" }
+                                                
+                ,{ "type": "dropdown", "text": "Replacement Mode", "help": "Replaces the crosshair by pre-defined types.", "id": "sReplaceMode:Crosshair",
+                    "valueOptions" : {"options" : ["Default","DotOnly", "DotWhenNotAiming", "None", "Custom"]} }
+                
+                ,{ "type" : "section", "text" : "Crosshair color by type" }
+                ,{ "type" : "text", "text" : "Colorize your crosshair by type! (leave empty for default crosshair widget color)" }
+                ,{ "type": "textinput", "text": "Pistol", "help": "", "id": "sColorPistol:Crosshair", "typeSpecial" : "color"}
+                ,{ "type": "textinput", "text": "Cutter", "help": "", "id": "sColorCutter:Crosshair", "typeSpecial" : "color"}
+                ,{ "type": "textinput", "text": "Dot", "help": "", "id": "sColorDot:Crosshair", "typeSpecial" : "color"}
+                ,{ "type": "textinput", "text": "Shotgun", "help": "", "id": "sColorShotgun:Crosshair", "typeSpecial" : "color"}
+                ,{ "type": "textinput", "text": "Rifle", "help": "", "id": "sColorRifle:Crosshair", "typeSpecial" : "color"}
+                ,{ "type": "textinput", "text": "Laser", "help": "", "id": "sColorLaser:Crosshair", "typeSpecial" : "color"}
+                ,{ "type": "textinput", "text": "Tool", "help": "", "id": "sColorTool:Crosshair", "typeSpecial" : "color"}
+                ,{ "type": "textinput", "text": "Interaction", "help": "", "id": "sColorInteraction:Crosshair", "typeSpecial" : "color"}
+                ,{ "type": "textinput", "text": "Command", "help": "", "id": "sColorCommand:Crosshair", "typeSpecial" : "color"}
+
+                ,{ "type" : "section", "text" : "Crosshair size by type" }
+                ,{ "type" : "text", "text" : "Scale your crosshair by type! (in percent, default is the widgets scale)" }
+                ,{ "type": "slider", "text": "Pistol", "help": "", "id": "iScalePistol:Crosshair",
+                    "valueOptions" : {"min" : 0, "max" : 400, "step" : 1 }}
+                ,{ "type": "slider", "text": "Cutter", "help": "", "id": "iScaleCutter:Crosshair",
+                    "valueOptions" : {"min" : 0, "max" : 400, "step" : 1 }}
+                ,{ "type": "slider", "text": "Dot", "help": "", "id": "iScaleDot:Crosshair",
+                    "valueOptions" : {"min" : 0, "max" : 400, "step" : 1 }}
+                ,{ "type": "slider", "text": "Shotgun", "help": "", "id": "iScaleShotgun:Crosshair",
+                    "valueOptions" : {"min" : 0, "max" : 400, "step" : 1 }}
+                ,{ "type": "slider", "text": "Rifle", "help": "", "id": "iScaleRifle:Crosshair",
+                    "valueOptions" : {"min" : 0, "max" : 400, "step" : 1 }}
+                ,{ "type": "slider", "text": "Laser", "help": "", "id": "iScaleLaser:Crosshair",
+                    "valueOptions" : {"min" : 0, "max" : 400, "step" : 1 }}
+                ,{ "type": "slider", "text": "Tool", "help": "", "id": "iScaleTool:Crosshair",
+                    "valueOptions" : {"min" : 0, "max" : 400, "step" : 1 }}
+                ,{ "type": "slider", "text": "Interaction", "help": "", "id": "iScaleInteraction:Crosshair",
+                    "valueOptions" : {"min" : 0, "max" : 400, "step" : 1 }}
+                ,{ "type": "slider", "text": "Command", "help": "", "id": "iScaleCommand:Crosshair",
+                    "valueOptions" : {"min" : 0, "max" : 400, "step" : 1 }}
+                
+                ,{ "type" : "section", "text" : "CUSTOM replacement mode" }
+                ,{ "type" : "text", "text" : "Custom replacements for 1st person (needs sReplaceMode to be 'Custom')" }
+
+                ,{ "type" : "section", "text" : "CUSTOM replacement mode" }
+                ,{ "type": "dropdown", "text": "Pistol", "help": "", "id": "sReplacePistol:Crosshair.CustomReplacements",
+                    "valueOptions" : {"options" : ["None","Pistol","Cutter","Dot","Shotgun","Rifle","Laser","Tool","Interaction","Command"]} }
+                ,{ "type": "dropdown", "text": "Cutter", "help": "", "id": "sReplaceCutter:Crosshair.CustomReplacements",
+                    "valueOptions" : {"options" : ["None","Pistol","Cutter","Dot","Shotgun","Rifle","Laser","Tool","Interaction","Command"]} }
+                ,{ "type": "dropdown", "text": "Dot", "help": "", "id": "sReplaceDot:Crosshair.CustomReplacements",
+                    "valueOptions" : {"options" : ["None","Pistol","Cutter","Dot","Shotgun","Rifle","Laser","Tool","Interaction","Command"]} }
+                ,{ "type": "dropdown", "text": "Shotgun", "help": "", "id": "sReplaceShotgun:Crosshair.CustomReplacements",
+                    "valueOptions" : {"options" : ["None","Pistol","Cutter","Dot","Shotgun","Rifle","Laser","Tool","Interaction","Command"]} }
+                ,{ "type": "dropdown", "text": "Rifle", "help": "", "id": "sReplaceRifle:Crosshair.CustomReplacements",
+                    "valueOptions" : {"options" : ["None","Pistol","Cutter","Dot","Shotgun","Rifle","Laser","Tool","Interaction","Command"]} }
+                ,{ "type": "dropdown", "text": "Laser", "help": "", "id": "sReplaceLaser:Crosshair.CustomReplacements",
+                    "valueOptions" : {"options" : ["None","Pistol","Cutter","Dot","Shotgun","Rifle","Laser","Tool","Interaction","Command"]} }
+                ,{ "type": "dropdown", "text": "Tool", "help": "", "id": "sReplaceTool:Crosshair.CustomReplacements",
+                    "valueOptions" : {"options" : ["None","Pistol","Cutter","Dot","Shotgun","Rifle","Laser","Tool","Interaction","Command"]} }
+                ,{ "type": "dropdown", "text": "Interaction", "help": "", "id": "sReplaceInteraction:Crosshair.CustomReplacements",
+                    "valueOptions" : {"options" : ["None","Pistol","Cutter","Dot","Shotgun","Rifle","Laser","Tool","Interaction","Command"]} }
+                ,{ "type": "dropdown", "text": "Command", "help": "", "id": "sReplaceCommand:Crosshair.CustomReplacements",
+                    "valueOptions" : {"options" : ["None","Pistol","Cutter","Dot","Shotgun","Rifle","Laser","Tool","Interaction","Command"]} }
+
+                ,{ "type" : "text", "text" : "Custom replacements when aiming in 1st person (needs sReplaceMode to be 'Custom')" }
+                ,{ "type": "dropdown", "text": "Pistol", "help": "", "id": "sReplacePistol:Crosshair.CustomReplacements_Aiming",
+                    "valueOptions" : {"options" : ["None","Pistol","Cutter","Dot","Shotgun","Rifle","Laser","Tool","Interaction","Command"]} }
+                ,{ "type": "dropdown", "text": "Cutter", "help": "", "id": "sReplaceCutter:Crosshair.CustomReplacements_Aiming",
+                    "valueOptions" : {"options" : ["None","Pistol","Cutter","Dot","Shotgun","Rifle","Laser","Tool","Interaction","Command"]} }
+                ,{ "type": "dropdown", "text": "Dot", "help": "", "id": "sReplaceDot:Crosshair.CustomReplacements_Aiming",
+                    "valueOptions" : {"options" : ["None","Pistol","Cutter","Dot","Shotgun","Rifle","Laser","Tool","Interaction","Command"]} }
+                ,{ "type": "dropdown", "text": "Shotgun", "help": "", "id": "sReplaceShotgun:Crosshair.CustomReplacements_Aiming",
+                    "valueOptions" : {"options" : ["None","Pistol","Cutter","Dot","Shotgun","Rifle","Laser","Tool","Interaction","Command"]} }
+                ,{ "type": "dropdown", "text": "Rifle", "help": "", "id": "sReplaceRifle:Crosshair.CustomReplacements_Aiming",
+                    "valueOptions" : {"options" : ["None","Pistol","Cutter","Dot","Shotgun","Rifle","Laser","Tool","Interaction","Command"]} }
+                ,{ "type": "dropdown", "text": "Laser", "help": "", "id": "sReplaceLaser:Crosshair.CustomReplacements_Aiming",
+                    "valueOptions" : {"options" : ["None","Pistol","Cutter","Dot","Shotgun","Rifle","Laser","Tool","Interaction","Command"]} }
+                ,{ "type": "dropdown", "text": "Tool", "help": "", "id": "sReplaceTool:Crosshair.CustomReplacements_Aiming",
+                    "valueOptions" : {"options" : ["None","Pistol","Cutter","Dot","Shotgun","Rifle","Laser","Tool","Interaction","Command"]} }
+                ,{ "type": "dropdown", "text": "Interaction", "help": "", "id": "sReplaceInteraction:Crosshair.CustomReplacements_Aiming",
+                    "valueOptions" : {"options" : ["None","Pistol","Cutter","Dot","Shotgun","Rifle","Laser","Tool","Interaction","Command"]} }
+                ,{ "type": "dropdown", "text": "Command", "help": "", "id": "sReplaceCommand:Crosshair.CustomReplacements_Aiming",
+                    "valueOptions" : {"options" : ["None","Pistol","Cutter","Dot","Shotgun","Rifle","Laser","Tool","Interaction","Command"]} }
+
+                ,{ "type" : "text", "text" : "Custom replacements in 3rd person (needs sReplaceMode to be 'Custom')" }
+                ,{ "type": "dropdown", "text": "Pistol", "help": "", "id": "sReplacePistol:Crosshair.CustomReplacements_3rdPerson",
+                    "valueOptions" : {"options" : ["None","Pistol","Cutter","Dot","Shotgun","Rifle","Laser","Tool","Interaction","Command"]} }
+                ,{ "type": "dropdown", "text": "Cutter", "help": "", "id": "sReplaceCutter:Crosshair.CustomReplacements_3rdPerson",
+                    "valueOptions" : {"options" : ["None","Pistol","Cutter","Dot","Shotgun","Rifle","Laser","Tool","Interaction","Command"]} }
+                ,{ "type": "dropdown", "text": "Dot", "help": "", "id": "sReplaceDot:Crosshair.CustomReplacements_3rdPerson",
+                    "valueOptions" : {"options" : ["None","Pistol","Cutter","Dot","Shotgun","Rifle","Laser","Tool","Interaction","Command"]} }
+                ,{ "type": "dropdown", "text": "Shotgun", "help": "", "id": "sReplaceShotgun:Crosshair.CustomReplacements_3rdPerson",
+                    "valueOptions" : {"options" : ["None","Pistol","Cutter","Dot","Shotgun","Rifle","Laser","Tool","Interaction","Command"]} }
+                ,{ "type": "dropdown", "text": "Rifle", "help": "", "id": "sReplaceRifle:Crosshair.CustomReplacements_3rdPerson",
+                    "valueOptions" : {"options" : ["None","Pistol","Cutter","Dot","Shotgun","Rifle","Laser","Tool","Interaction","Command"]} }
+                ,{ "type": "dropdown", "text": "Laser", "help": "", "id": "sReplaceLaser:Crosshair.CustomReplacements_3rdPerson",
+                    "valueOptions" : {"options" : ["None","Pistol","Cutter","Dot","Shotgun","Rifle","Laser","Tool","Interaction","Command"]} }
+                ,{ "type": "dropdown", "text": "Tool", "help": "", "id": "sReplaceTool:Crosshair.CustomReplacements_3rdPerson",
+                    "valueOptions" : {"options" : ["None","Pistol","Cutter","Dot","Shotgun","Rifle","Laser","Tool","Interaction","Command"]} }
+                ,{ "type": "dropdown", "text": "Interaction", "help": "", "id": "sReplaceInteraction:Crosshair.CustomReplacements_3rdPerson",
+                    "valueOptions" : {"options" : ["None","Pistol","Cutter","Dot","Shotgun","Rifle","Laser","Tool","Interaction","Command"]} }
+                ,{ "type": "dropdown", "text": "Command", "help": "", "id": "sReplaceCommand:Crosshair.CustomReplacements_3rdPerson",
+                    "valueOptions" : {"options" : ["None","Pistol","Cutter","Dot","Shotgun","Rifle","Laser","Tool","Interaction","Command"]} }
+
+                ,{ "type" : "text", "text" : "Custom replacements when aiming in 3rd person (needs sReplaceMode to be 'Custom')" }
+                ,{ "type": "dropdown", "text": "Pistol", "help": "", "id": "sReplacePistol:Crosshair.CustomReplacements_3rdPerson_Aiming",
+                    "valueOptions" : {"options" : ["None","Pistol","Cutter","Dot","Shotgun","Rifle","Laser","Tool","Interaction","Command"]} }
+                ,{ "type": "dropdown", "text": "Cutter", "help": "", "id": "sReplaceCutter:Crosshair.CustomReplacements_3rdPerson_Aiming",
+                    "valueOptions" : {"options" : ["None","Pistol","Cutter","Dot","Shotgun","Rifle","Laser","Tool","Interaction","Command"]} }
+                ,{ "type": "dropdown", "text": "Dot", "help": "", "id": "sReplaceDot:Crosshair.CustomReplacements_3rdPerson_Aiming",
+                    "valueOptions" : {"options" : ["None","Pistol","Cutter","Dot","Shotgun","Rifle","Laser","Tool","Interaction","Command"]} }
+                ,{ "type": "dropdown", "text": "Shotgun", "help": "", "id": "sReplaceShotgun:Crosshair.CustomReplacements_3rdPerson_Aiming",
+                    "valueOptions" : {"options" : ["None","Pistol","Cutter","Dot","Shotgun","Rifle","Laser","Tool","Interaction","Command"]} }
+                ,{ "type": "dropdown", "text": "Rifle", "help": "", "id": "sReplaceRifle:Crosshair.CustomReplacements_3rdPerson_Aiming",
+                    "valueOptions" : {"options" : ["None","Pistol","Cutter","Dot","Shotgun","Rifle","Laser","Tool","Interaction","Command"]} }
+                ,{ "type": "dropdown", "text": "Laser", "help": "", "id": "sReplaceLaser:Crosshair.CustomReplacements_3rdPerson_Aiming",
+                    "valueOptions" : {"options" : ["None","Pistol","Cutter","Dot","Shotgun","Rifle","Laser","Tool","Interaction","Command"]} }
+                ,{ "type": "dropdown", "text": "Tool", "help": "", "id": "sReplaceTool:Crosshair.CustomReplacements_3rdPerson_Aiming",
+                    "valueOptions" : {"options" : ["None","Pistol","Cutter","Dot","Shotgun","Rifle","Laser","Tool","Interaction","Command"]} }
+                ,{ "type": "dropdown", "text": "Interaction", "help": "", "id": "sReplaceInteraction:Crosshair.CustomReplacements_3rdPerson_Aiming",
+                    "valueOptions" : {"options" : ["None","Pistol","Cutter","Dot","Shotgun","Rifle","Laser","Tool","Interaction","Command"]} }
+                ,{ "type": "dropdown", "text": "Command", "help": "", "id": "sReplaceCommand:Crosshair.CustomReplacements_3rdPerson_Aiming",
+                    "valueOptions" : {"options" : ["None","Pistol","Cutter","Dot","Shotgun","Rifle","Laser","Tool","Interaction","Command"]} }
+            ]
+        },
+        {
+            "pageDisplayName" : "Hit and kill marker",
+            "content" : [
+                { "type" : "section", "text" : "Hit and kill marker" }
+                ,{ "type": "switcher", "text": "Hit and kill markers on the crosshair", "help": "Hit and kill markers on the crosshair", "id": "bEnabled:HitAndKill"}
+                ,{ "type": "textinput", "text": "Widget color", "help": "Colorize the widget. If the value is empty, the default HUD color will be used.", "id": "sColor:HitAndKill", "typeSpecial" : "color"}
+                ,{ "type": "switcher", "text": " - Force color", "help": "Force color on widget (Warning: This will remove any color/brightness)", "id": "bForceColor:HitAndKill"}
+                ,{ "type": "slider", "text": "Position X", "help": "Re-position the widget - default position: 960, 538", "id": "fPositionX:HitAndKill",
+                    "valueOptions" : {"min" : 0, "max" : 1920, "step" : 1 }}
+                ,{ "type": "slider", "text": "Position Y", "help": "", "id": "fPositionY:HitAndKill",
+                    "valueOptions" : {"min" : 0, "max" : 1080, "step" : 1 }}
+                ,{ "type": "slider", "text": "Scale", "help": "", "id": "fScale:HitAndKill",
+                    "valueOptions" : {"min" : 0, "max" : 200, "step" : 1 }}
+                ,{ "type": "slider", "text": "Rotation", "help": "", "id": "fRotation:HitAndKill",
+                    "valueOptions" : {"min" : 0, "max" : 360, "step" : 1 }}
+                ]
+            },
+            {
+                "pageDisplayName" : "Explosive indicator",
+                "content" : [
+                    { "type" : "section", "text" : "Explosive indicator" }
+                ,{ "type": "switcher", "text": "Shows an indicator when an explosive thing is near you", "help": "Shows an indicator when an explosive thing is near you", "id": "bEnabled:ExplosiveIndicator"}
+                ,{ "type": "textinput", "text": "Widget color", "help": "Colorize the widget. If the value is empty, the default HUD color will be used.", "id": "sColor:ExplosiveIndicator", "typeSpecial" : "color"}
+                ,{ "type": "switcher", "text": " - Force color", "help": "Force color on widget (Warning: This will remove any color/brightness)", "id": "bForceColor:ExplosiveIndicator"}
+                ,{ "type": "slider", "text": "Position X", "help": "Re-position the widget - default position: 960, 540", "id": "fPositionX:ExplosiveIndicator",
+                    "valueOptions" : {"min" : 0, "max" : 1920, "step" : 1 }}
+                ,{ "type": "slider", "text": "Position Y", "help": "", "id": "fPositionY:ExplosiveIndicator",
+                    "valueOptions" : {"min" : 0, "max" : 1080, "step" : 1 }}
+                ,{ "type": "slider", "text": "Scale", "help": "", "id": "fScale:ExplosiveIndicator",
+                    "valueOptions" : {"min" : 0, "max" : 200, "step" : 1 }}
+                ,{ "type": "slider", "text": "Rotation", "help": "", "id": "fRotation:ExplosiveIndicator",
+                    "valueOptions" : {"min" : 0, "max" : 360, "step" : 1 }}
+                ]
+            },
+            {
+                "pageDisplayName" : "Hit indicator",
+                "content" : [
+                    { "type" : "section", "text" : "Hit indicator" }
+                ,{ "type": "switcher", "text": "Displays a indicator from where you were hit", "help": "Displays a indicator from where you were hit", "id": "bEnabled:DirectionalHit"}
+                ,{ "type": "textinput", "text": "Widget color", "help": "Colorize the widget. If the value is empty, the default HUD color will be used.", "id": "sColor:DirectionalHit", "typeSpecial" : "color"}
+                ,{ "type": "switcher", "text": " - Force color", "help": "Force color on widget (Warning: This will remove any color/brightness)", "id": "bForceColor:DirectionalHit"}
+                ,{ "type": "slider", "text": "Position X", "help": "Re-position the widget - default position: 960, 540", "id": "fPositionX:DirectionalHit",
+                    "valueOptions" : {"min" : 0, "max" : 1920, "step" : 1 }}
+                ,{ "type": "slider", "text": "Position Y", "help": "", "id": "fPositionY:DirectionalHit",
+                    "valueOptions" : {"min" : 0, "max" : 1080, "step" : 1 }}
+                ,{ "type": "slider", "text": "Scale", "help": "", "id": "fScale:DirectionalHit",
+                    "valueOptions" : {"min" : 0, "max" : 200, "step" : 1 }}
+                ,{ "type": "slider", "text": "Rotation", "help": "", "id": "fRotation:DirectionalHit",
+                    "valueOptions" : {"min" : 0, "max" : 360, "step" : 1 }}
+                ]
+            },
+            {
+                "pageDisplayName" : "Stealth Meter",
+                "content" : [
+                { "type" : "image", "src" : "config.images/HUD/StealthMeter.jpg", "maxWidth": "33%", "description": "Shows your current stealth level"}
+                ,{ "type" : "section", "text" : "Stealth Meter" }
+                ,{ "type": "switcher", "text": "Enable Stealth Meter widget", "help": "Shows your current stealth level", "id": "bEnabled:StealthMeter"}
+                ,{ "type": "textinput", "text": "Widget color", "help": "Colorize the widget. If the value is empty, the default HUD color will be used.", "id": "sColor:StealthMeter", "typeSpecial" : "color"}
+                ,{ "type": "switcher", "text": " - Force color", "help": "Force color on widget (Warning: This will remove any color/brightness)", "id": "bForceColor:StealthMeter"}
+                ,{ "type": "slider", "text": "Position X", "help": "Re-position the widget - default position: 960, 128", "id": "fPositionX:StealthMeter",
+                    "valueOptions" : {"min" : 0, "max" : 1920, "step" : 1 }}
+                ,{ "type": "slider", "text": "Position Y", "help": "", "id": "fPositionY:StealthMeter",
+                    "valueOptions" : {"min" : 0, "max" : 1080, "step" : 1 }}
+                ,{ "type": "slider", "text": "Scale", "help": "", "id": "fScale:StealthMeter",
+                    "valueOptions" : {"min" : 0, "max" : 200, "step" : 1 }}
+                ,{ "type": "slider", "text": "Rotation", "help": "", "id": "fRotation:StealthMeter",
+                    "valueOptions" : {"min" : 0, "max" : 360, "step" : 1 }}
+                ,{ "type" : "section", "text" : "Stealh bar colors" }
+                ,{ "type" : "text", "text" : "Override color for the various stealth modes" }
+                ,{ "type": "textinput", "text": "Hidden", "help": "", "id": "sBarColorHidden:StealthMeter", "typeSpecial" : "color"}
+                ,{ "type": "textinput", "text": "Caution", "help": "", "id": "sBarColorCaution:StealthMeter", "typeSpecial" : "color"}
+                ,{ "type": "textinput", "text": "Detected", "help": "", "id": "sBarColorDetected:StealthMeter", "typeSpecial" : "color"}
+                ,{ "type": "textinput", "text": "Danger", "help": "", "id": "sBarColorDanger:StealthMeter", "typeSpecial" : "color"}
+            ]
+        },
+        {
+            "pageDisplayName" : "Artifact powers",
+            "content" : [
+                { "type" : "section", "text" : "Artifact powers" }
+                ,{ "type": "switcher", "text": "Enable Artifact Powers widget", "help": "Artifact powers widget. You know what it is when you are at that stage in the game.", "id": "bEnabled:ArtifactPowers"}
+                ,{ "type": "textinput", "text": "Widget color", "help": "Colorize the widget. If the value is empty, the default HUD color will be used.", "id": "sColor:ArtifactPowers", "typeSpecial" : "color"}
+                ,{ "type": "switcher", "text": " - Force color", "help": "Force color on widget (Warning: This will remove any color/brightness)", "id": "bForceColor:ArtifactPowers"}
+                ,{ "type": "slider", "text": "Position X", "help": "Re-position the widget - default position: 960, 540", "id": "fPositionX:ArtifactPowers",
+                    "valueOptions" : {"min" : 0, "max" : 1920, "step" : 1 }}
+                ,{ "type": "slider", "text": "Position Y", "help": "", "id": "fPositionY:ArtifactPowers",
+                    "valueOptions" : {"min" : 0, "max" : 1080, "step" : 1 }}
+                ,{ "type": "slider", "text": "Scale", "help": "", "id": "fScale:ArtifactPowers",
+                    "valueOptions" : {"min" : 0, "max" : 200, "step" : 1 }}
+                ,{ "type": "slider", "text": "Rotation", "help": "", "id": "fRotation:ArtifactPowers",
+                    "valueOptions" : {"min" : 0, "max" : 360, "step" : 1 }}
+                ]
+            },
+            {
+                "pageDisplayName" : "Social Interactions",
+                "content" : [
+                    { "type" : "section", "text" : "Social Interactions" }
+                ,{ "type": "switcher", "text": "Enable Social Interactions widget", "help": "Widget for social interactions (requires skill).", "id": "bEnabled:SocialCommands"}
+                ,{ "type": "textinput", "text": "Widget color", "help": "Colorize the widget. If the value is empty, the default HUD color will be used.", "id": "sColor:SocialCommands", "typeSpecial" : "color"}
+                ,{ "type": "switcher", "text": " - Force color", "help": "Force color on widget (Warning: This will remove any color/brightness)", "id": "bForceColor:SocialCommands"}
+                ,{ "type": "slider", "text": "Position X", "help": "Re-position the widget - default position: 1090, 190", "id": "fPositionX:SocialCommands",
+                    "valueOptions" : {"min" : 0, "max" : 1920, "step" : 1 }}
+                ,{ "type": "slider", "text": "Position Y", "help": "", "id": "fPositionY:SocialCommands",
+                    "valueOptions" : {"min" : 0, "max" : 1080, "step" : 1 }}
+                ,{ "type": "slider", "text": "Scale", "help": "", "id": "fScale:SocialCommands",
+                    "valueOptions" : {"min" : 0, "max" : 200, "step" : 1 }}
+                ,{ "type": "slider", "text": "Rotation", "help": "", "id": "fRotation:SocialCommands",
+                    "valueOptions" : {"min" : 0, "max" : 360, "step" : 1 }}
+                ]
+            },
+            {
+                "pageDisplayName" : "Crew buffs",
+                "content" : [
+                    { "type" : "section", "text" : "Crew buffs" }
+                ,{ "type": "switcher", "text": "Enable Crew buffs widget", "help": "Crew buffs widget", "id": "bEnabled:CrewBuff"}
+                ,{ "type": "textinput", "text": "Widget color", "help": "Colorize the widget. If the value is empty, the default HUD color will be used.", "id": "sColor:CrewBuff", "typeSpecial" : "color"}
+                ,{ "type": "switcher", "text": " - Force color", "help": "Force color on widget (Warning: This will remove any color/brightness)", "id": "bForceColor:CrewBuff"}
+                ,{ "type": "slider", "text": "Position X", "help": "Re-position the widget - default position: 1851, 139", "id": "fPositionX:CrewBuff",
+                    "valueOptions" : {"min" : 0, "max" : 1920, "step" : 1 }}
+                ,{ "type": "slider", "text": "Position Y", "help": "", "id": "fPositionY:CrewBuff",
+                    "valueOptions" : {"min" : 0, "max" : 1080, "step" : 1 }}
+                ,{ "type": "slider", "text": "Scale", "help": "", "id": "fScale:CrewBuff",
+                    "valueOptions" : {"min" : 0, "max" : 200, "step" : 1 }}
+                ,{ "type": "slider", "text": "Rotation", "help": "", "id": "fRotation:CrewBuff",
+                    "valueOptions" : {"min" : 0, "max" : 360, "step" : 1 }}
+                ]
+            },
+            {
+                "pageDisplayName" : "Floating quest marker",
+                "content" : [
+                { "type" : "image", "src" : "config.images/HUD/FloatingQuestMarker.jpg", "maxWidth": "33%", "description": "The floating quest marker"}
+                ,{ "type" : "section", "text" : "Floating quest marker" }
+                ,{ "type": "switcher", "text": "Enable Floating quest marker", "help": "The floating quest marker on the HUD", "id": "bEnabled:QuestMarker"}
+                ,{ "type": "textinput", "text": "Widget color", "help": "Colorize the widget. If the value is empty, the default HUD color will be used.", "id": "sColor:QuestMarker", "typeSpecial" : "color"}
+                ,{ "type": "switcher", "text": " - Force color", "help": "Force color on widget (Warning: This will remove any color/brightness)", "id": "bForceColor:QuestMarker"}
+            ]
+        },
+        {
+            "pageDisplayName" : "Hit damage",
+            "content" : [
+                { "type" : "section", "text" : "Hit damage" }
+                ,{ "type": "switcher", "text": "Enable hit damage", "help": "Shows hit damage", "id": "bEnabled:HitDamage"}
+                ,{ "type": "textinput", "text": "Widget color", "help": "Colorize the widget. If the value is empty, the default HUD color will be used.", "id": "sColor:HitDamage", "typeSpecial" : "color"}
+                ,{ "type": "switcher", "text": " - Force color", "help": "Force color on widget (Warning: This will remove any color/brightness)", "id": "bForceColor:HitDamage"}
+            ]
+        },
+        {
+            "pageDisplayName" : "Enemy health bars",
+            "content" : [
+                { "type" : "section", "text" : "Enemy health bars" }
+                ,{ "type": "switcher", "text": "Enable Enemy health bars", "help": "Contains the enemy health bars.", "id": "bEnabled:EnemyHealth"}
+                ,{ "type": "textinput", "text": "Widget color", "help": "Colorize the widget. If the value is empty, the default HUD color will be used.", "id": "sColor:EnemyHealth", "typeSpecial" : "color"}
+                ,{ "type": "switcher", "text": " - Force color", "help": "Force color on widget (Warning: This will remove any color/brightness)", "id": "bForceColor:EnemyHealth"}                
+            ]
+        }
+    ]
+}
